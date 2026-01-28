@@ -132,3 +132,19 @@ if (main && thumbs.length) {
   thumbs.forEach((t) => t.addEventListener("click", () => set(Number(t.dataset.thumb))));
   set(0);
 }
+// Hero dynamic word (change on refresh)
+const dynamicWord = document.getElementById("dynamic-word");
+
+if (dynamicWord) {
+  const words = [
+    "GUIDE",
+    "RÉVÈLE",
+    "INSPIRE",
+    "ÉCL AIRE".replace(" ", ""), // petite astuce anti typo
+    "ANCRE",
+    "ÉVEILLE"
+  ];
+
+  const random = Math.floor(Math.random() * words.length);
+  dynamicWord.textContent = words[random];
+}
