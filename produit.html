@@ -3,8 +3,191 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YEIRN — ECHO</title>
+  <title>YEIRN — Produit</title>
   <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Petit CSS additionnel pour la page produit (léger) -->
+  <style>
+    .product { padding: 40px 0 10px; }
+    .product__grid{
+      width: min(var(--container), calc(100% - 64px));
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr .85fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .product__title{
+      margin: 0 0 10px;
+      font-size: 26px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .product__kicker{
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .product__text{ color: var(--muted); line-height: 1.7; margin: 0 0 16px; }
+    .gallery{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+    .gallery__main{
+      aspect-ratio: 5/3;
+      background: #f3f3f3;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery__main img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 45%;
+      transform: scale(.92);
+      display:block;
+    }
+    .thumbs{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 12px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+    .thumb{
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #fff;
+      padding: 0;
+    }
+    .thumb img{ width:100%; height:88px; object-fit: cover; display:block; }
+    .thumb.is-active{ outline: 2px solid #111; outline-offset: 2px; }
+
+    .buybox{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: #fff;
+    }
+    .price{
+      font-weight: 750;
+      letter-spacing: .02em;
+      margin: 0 0 12px;
+    }
+    .qty{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0 8px;
+    }
+    .qty button{
+      width: 36px; height: 36px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      cursor:pointer;
+    }
+    .qty input{
+      width: 46px;
+      height: 36px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .accordion{
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+    }
+    .accordion__item{ border-bottom: 1px solid var(--line); }
+    .accordion__btn{
+      width: 100%;
+      text-align: left;
+      padding: 12px 0;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .accordion__panel{
+      display:none;
+      padding: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .accordion__panel.is-open{ display:block; }
+
+    .tabs{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:#fff;
+      overflow:hidden;
+    }
+    .tabs__bar{
+      display:flex;
+      gap: 14px;
+      padding: 12px 12px 0;
+      border-bottom: 1px solid var(--line);
+      overflow:auto;
+    }
+    .tabs__btn{
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      padding: 10px 6px 12px;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+    }
+    .tabs__btn.is-active{
+      color:#111;
+      border-bottom-color:#111;
+    }
+    .tabs__panel{
+      display:none;
+      padding: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .tabs__panel.is-active{ display:block; }
+
+    .aside{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+    .aside__title{
+      margin:0;
+      font-size: 12px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px){
+      .product__grid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <div class="layout">
@@ -12,9 +195,11 @@
       <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
         <span></span><span></span><span></span>
       </button>
+
       <a class="rail__brand" href="index.html" aria-label="YEIRN">
-        <span class="rail__dot"></span><span class="rail__name">YEIRN</span>
+        <img class="rail__logo" src="img/logo.png" alt="Logo YEIRN" />
       </a>
+
       <nav class="rail__nav" data-drawer>
         <ul class="rail__menu">
           <li><a href="index.html">Accueil</a></li>
@@ -26,128 +211,138 @@
     </aside>
 
     <main class="main">
-      <section class="product container">
-        <header class="product__head">
-          <div>
-            <h1 class="product__title">ECHO</h1>
-            <p class="product__subtitle">ATELIER THÉMATIQUE</p>
-            <p class="product__desc">
-              Un atelier pour explorer la parole comme matière créative : écouter, reformuler, écrire, transformer.
-            </p>
-          </div>
-
-          <div class="product__pricebox">
-            <div class="product__price">À PARTIR <strong>49€</strong></div>
-            <div class="product__small">Session / personne</div>
-          </div>
-        </header>
-
+      <section class="product">
         <div class="product__grid">
-          <!-- Galerie -->
-          <div class="gallery">
-            <div class="gallery__thumbs" aria-label="Miniatures">
-              <button class="thumb is-active" data-thumb="0" aria-label="Image 1"></button>
-              <button class="thumb" data-thumb="1" aria-label="Image 2"></button>
-              <button class="thumb" data-thumb="2" aria-label="Image 3"></button>
-            </div>
-            <div class="gallery__main" aria-label="Image principale">
-              <div class="gallery__img" data-gallery-main></div>
-            </div>
-          </div>
+          <!-- Colonne texte (gauche) -->
+          <div>
+            <div class="product__kicker">ECHO — ATELIER THÉMATIQUE</div>
+            <h1 class="product__title">ECHO</h1>
+            <p class="product__text">
+              Un atelier guidé pour explorer la parole à travers l’écriture et la création.
+              Format pensé pour être simple, doux et accessible.
+            </p>
 
-          <!-- Infos + accordéons -->
-          <div class="product__side">
-            <div class="accordion" data-accordion>
-              <button class="accordion__btn" aria-expanded="true">
-                SUPPORT <span class="chev">▾</span>
-              </button>
-              <div class="accordion__panel is-open">
-                <p>Présentiel / visio. Matériel fourni selon formule.</p>
-              </div>
-
-              <button class="accordion__btn" aria-expanded="false">
-                DIMENSION <span class="chev">▾</span>
-              </button>
-              <div class="accordion__panel">
-                <p>Durée : 1h30 à 2h — Groupe : 6 à 12 personnes.</p>
-              </div>
-
-              <button class="accordion__btn" aria-expanded="false">
-                OPTION <span class="chev">▾</span>
-              </button>
-              <div class="accordion__panel">
-                <p>Pack duo / entreprises / suivi créatif.</p>
-              </div>
-            </div>
-
-            <div class="qty">
-              <span class="qty__label">Quantité</span>
-              <div class="qty__ctrl">
-                <button type="button" class="qty__btn" data-qty="-1" aria-label="Diminuer">−</button>
-                <input class="qty__input" type="number" min="1" value="1" data-qty-input />
-                <button type="button" class="qty__btn" data-qty="1" aria-label="Augmenter">+</button>
-              </div>
-            </div>
-
-            <button class="btn btn--full" type="button">Réserver</button>
-            <p class="muted">*Fonctionnalité de paiement en cours de développement.</p>
-          </div>
-
-          <!-- Tabs -->
-          <div class="product__tabs">
+            <!-- Tabs (centre sur la frame) -->
             <div class="tabs" data-tabs>
-              <div class="tabs__bar" role="tablist">
-                <button class="tabs__tab is-active" role="tab" aria-selected="true" data-tab="desc">DESCRIPTIF</button>
-                <button class="tabs__tab" role="tab" aria-selected="false" data-tab="cond">CONDITION</button>
-                <button class="tabs__tab" role="tab" aria-selected="false" data-tab="faq">FAQ</button>
-                <button class="tabs__tab" role="tab" aria-selected="false" data-tab="avis">AVIS</button>
+              <div class="tabs__bar" role="tablist" aria-label="Informations">
+                <button class="tabs__btn is-active" type="button" data-tab="descriptif" role="tab" aria-selected="true">DESCRIPTIF</button>
+                <button class="tabs__btn" type="button" data-tab="condition" role="tab" aria-selected="false">CONDITION</button>
+                <button class="tabs__btn" type="button" data-tab="faq" role="tab" aria-selected="false">FAQ</button>
+                <button class="tabs__btn" type="button" data-tab="avis" role="tab" aria-selected="false">AVIS</button>
               </div>
 
-              <div class="tabs__panel is-active" role="tabpanel" data-panel="desc">
-                <h3>Ce que tu vas vivre</h3>
-                <ul class="list">
-                  <li>Temps d’écoute & amorce (guidée)</li>
-                  <li>Écriture brève (prompts)</li>
-                  <li>Mise en forme créative (carte, mini-édition)</li>
-                </ul>
+              <div class="tabs__panel is-active" data-panel="descriptif">
+                <p>
+                  Contenu : temps d’accueil, lecture guidée, exercices d’écriture, partage (optionnel),
+                  et un support de création selon le thème.
+                </p>
               </div>
 
-              <div class="tabs__panel" role="tabpanel" data-panel="cond">
-                <h3>Conditions</h3>
-                <p>Annulation jusqu’à 48h. Reprogrammation possible selon créneaux.</p>
+              <div class="tabs__panel" data-panel="condition">
+                <p>
+                  Places limitées. Annulation/modification possible jusqu’à 48h avant la date de l’atelier.
+                </p>
               </div>
 
-              <div class="tabs__panel" role="tabpanel" data-panel="faq">
-                <h3>FAQ</h3>
-                <p><strong>Faut-il savoir écrire ?</strong> Non, l’atelier est guidé.</p>
+              <div class="tabs__panel" data-panel="faq">
+                <p><strong>Dois-je venir avec une Bible ?</strong> Oui, idéalement (sinon une Bible peut être prêtée selon disponibilité).</p>
+                <p><strong>Durée ?</strong> Environ 1h30.</p>
               </div>
 
-              <div class="tabs__panel" role="tabpanel" data-panel="avis">
-                <h3>Avis</h3>
-                <p class="muted">Section design — tu brancheras les avis plus tard.</p>
+              <div class="tabs__panel" data-panel="avis">
+                <p>Aucun avis pour le moment.</p>
               </div>
             </div>
           </div>
 
-          <!-- Complémentaires -->
-          <aside class="product__upsell">
-            <h3 class="aside__title">PRODUIT COMPLÉMENTAIRE</h3>
-            <div class="stack">
-              <a class="mini" href="produit.html">
-                <div class="mini__img"></div>
-                <div>
-                  <div class="mini__title">ECHO — HOME</div>
-                  <div class="mini__meta">Kit • À partir de 29€</div>
-                </div>
-              </a>
-              <a class="mini" href="produit.html">
-                <div class="mini__img"></div>
-                <div>
-                  <div class="mini__title">ANCHOR — HOME</div>
-                  <div class="mini__meta">Kit • À partir de 29€</div>
-                </div>
-              </a>
+          <!-- Colonne galerie + achat (milieu) -->
+          <div>
+            <div class="gallery">
+              <div class="gallery__main" data-gallery-main>
+                <img id="mainImg" src="img/poche1.webp" alt="Produit ECHO" loading="lazy">
+              </div>
+
+              <div class="thumbs">
+                <button class="thumb is-active" type="button" data-thumb="0" aria-label="Vue 1">
+                  <img src="img/poche1.webp" alt="Vue 1" loading="lazy">
+                </button>
+                <button class="thumb" type="button" data-thumb="1" aria-label="Vue 2">
+                  <img src="img/poche2.webp" alt="Vue 2" loading="lazy">
+                </button>
+                <button class="thumb" type="button" data-thumb="2" aria-label="Vue 3">
+                  <img src="img/poche3.webp" alt="Vue 3" loading="lazy">
+                </button>
+              </div>
             </div>
+
+            <div class="buybox" style="margin-top:14px;">
+              <p class="price">À PARTIR 39,90 €</p>
+
+              <div class="qty" aria-label="Quantité">
+                <button type="button" data-qty="-1" aria-label="Diminuer">−</button>
+                <input type="text" value="1" inputmode="numeric" data-qty-input aria-label="Quantité" />
+                <button type="button" data-qty="1" aria-label="Augmenter">+</button>
+              </div>
+
+              <a class="btn" href="kits.html" style="width:100%;">Ajouter au panier</a>
+
+              <!-- Accordéons -->
+              <div class="accordion" data-accordion>
+                <div class="accordion__item">
+                  <button class="accordion__btn" type="button" aria-expanded="false">
+                    SUPPORT <span>+</span>
+                  </button>
+                  <div class="accordion__panel">
+                    Papier premium + support créatif selon l’atelier (ex : carte, carnet, impression).
+                  </div>
+                </div>
+
+                <div class="accordion__item">
+                  <button class="accordion__btn" type="button" aria-expanded="false">
+                    DIMENSION <span>+</span>
+                  </button>
+                  <div class="accordion__panel">
+                    Format A5/A6 selon le support. Détails précis communiqués avant l’atelier.
+                  </div>
+                </div>
+
+                <div class="accordion__item">
+                  <button class="accordion__btn" type="button" aria-expanded="false">
+                    OPTION <span>+</span>
+                  </button>
+                  <div class="accordion__panel">
+                    Option kit “home” disponible (Bible + stylo + bloc-notes).
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Colonne produits complémentaires (droite) -->
+          <aside class="aside">
+            <h3 class="aside__title">PRODUIT COMPLÉMENTAIRE</h3>
+
+            <a class="card" href="produit.html">
+              <div class="card__media card__media--alt">
+                <img src="img/poche2.webp" alt="Kit complémentaire" loading="lazy">
+              </div>
+              <div class="card__body">
+                <div class="card__kicker">KIT</div>
+                <div class="card__title">ANCHOR — HOME</div>
+                <div class="card__meta">À partir de 29€</div>
+              </div>
+            </a>
+
+            <a class="card" href="produit.html">
+              <div class="card__media card__media--alt">
+                <img src="img/poche3.webp" alt="Kit complémentaire" loading="lazy">
+              </div>
+              <div class="card__body">
+                <div class="card__kicker">KIT</div>
+                <div class="card__title">FLOW — HOME</div>
+                <div class="card__meta">À partir de 29€</div>
+              </div>
+            </a>
           </aside>
         </div>
       </section>
@@ -161,5 +356,28 @@
   </div>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- Mini script galerie compatible avec ton main.js (data-thumb) -->
+  <script>
+    (function(){
+      const mainImg = document.getElementById('mainImg');
+      const thumbs = document.querySelectorAll('[data-thumb]');
+      if (!mainImg || !thumbs.length) return;
+
+      const srcs = [
+        'img/poche1.webp',
+        'img/poche2.webp',
+        'img/poche3.webp'
+      ];
+
+      function set(i){
+        mainImg.src = srcs[i] || srcs[0];
+        thumbs.forEach(t => t.classList.toggle('is-active', Number(t.dataset.thumb) === i));
+      }
+
+      thumbs.forEach(t => t.addEventListener('click', () => set(Number(t.dataset.thumb))));
+      set(0);
+    })();
+  </script>
 </body>
 </html>

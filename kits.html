@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — Kits</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail" aria-label="Navigation">
+      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+
+      <a class="rail__brand" href="index.html" aria-label="YEIRN">
+        <img class="rail__logo" src="./assets/img/logo.png" alt="Logo YEIRN" />
+      </a>
+
+      <nav class="rail__nav" data-drawer>
+        <ul class="rail__menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="ateliers.html">Ateliers</a></li>
+          <li><a class="is-active" href="kits.html">Kits</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero__title">NOS KITS CRÉATIFS</h1>
+          <p class="hero__lead">
+            Des pochettes prêtes à l’emploi : Bible, stylo et bloc-notes — pour créer où tu veux.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container section__head">
+          <h2 class="section__title">KITS</h2>
+          <a class="section__link" href="inscription.html">Être informé</a>
+        </div>
+
+        <div class="container grid grid--3">
+          <a class="card" href="produit.html">
+            <div class="card__media card__media--alt">
+              <img src="./assets/img/Kbible1.png" alt="Kit ECHO — HOME" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">KIT</div>
+              <div class="card__title">BIBLE MARRON + STYLO & CARNET</div>
+              <div class="card__meta">À partir de 29€</div>
+            </div>
+          </a>
+
+          <a class="card" href="produit.html">
+            <div class="card__media card__media--alt">
+              <img src="./assets/img/Kbible2.png" alt="Kit ANCHOR — HOME" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">KIT</div>
+              <div class="card__title">BIBLE BLEU VERT + STYLO & CARNET</div>
+              <div class="card__meta">À partir de 29€</div>
+            </div>
+          </a>
+
+          <a class="card" href="produit.html">
+            <div class="card__media card__media--alt">
+              <img src="./assets/img/Kbible3.png" alt="Kit FLOW — HOME" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">KIT</div>
+              <div class="card__title">BIBLE ROSE + STYLO & CARNET</div>
+              <div class="card__meta">À partir de 29€</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p>© <span id="year"></span> YEIRN</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

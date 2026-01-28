@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — Ateliers</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail" aria-label="Navigation">
+      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+
+      <a class="rail__brand" href="index.html" aria-label="YEIRN">
+        <img class="rail__logo" src="./assets/img/logo.png" alt="Logo YEIRN" />
+      </a>
+
+      <nav class="rail__nav" data-drawer>
+        <ul class="rail__menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a class="is-active" href="ateliers.html">Ateliers</a></li>
+          <li><a href="kits.html">Kits</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero__title">NOS ATELIERS</h1>
+          <p class="hero__lead">
+            Des ateliers guidés par la parole, pensés pour créer, partager et s’ancrer.
+          </p>
+          <div class="hero__cta">
+            <a class="btn" href="kits.html">Découvrir les kits</a>
+            <a class="btn btn--ghost" href="inscription.html">S’inscrire</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEXTE INTRO -->
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <p class="hero__lead" style="margin-top:0;">
+            Les ateliers YEIRN sont des espaces de pause et d’expression. Chaque thème s’appuie
+            sur la parole pour ouvrir un temps d’écoute, d’écriture et de création. Les visuels
+            et supports accompagnent le cheminement, pour ancrer ce qui émerge et permettre
+            une mise en mouvement personnelle.
+          </p>
+        </div>
+      </section>
+
+      <!-- LISTING -->
+      <section class="section">
+        <div class="container section__head">
+          <h2 class="section__title">ATELIERS</h2>
+          <span class="section__link">3 formats</span>
+        </div>
+
+        <div class="container grid grid--3">
+          <!-- ECHO -->
+          <a class="card" href="produit.html">
+            <div class="card__media">
+              <img src="./assets/img/poch1.png" alt="Atelier ECHO" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">ATELIER THÉMATIQUE</div>
+              <div class="card__title">ATELIER 1</div>
+              <div class="card__meta">Parole • Écoute • Création</div>
+              <p class="card__desc">
+                Un atelier centré sur l’écoute intérieure et la résonance de la parole.
+                Les supports visuels accompagnent l’écriture pour laisser émerger l’essentiel.
+              </p>
+            </div>
+          </a>
+
+          <!-- ANCHOR -->
+          <a class="card" href="produit.html">
+            <div class="card__media">
+              <img src="./assets/img/poch2.png" alt="Atelier ANCHOR" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">ATELIER GUIDÉ PAR LA PAROLE</div>
+              <div class="card__title">ATELIER 2</div>
+              <div class="card__meta">Ancrage • Récit • Partage</div>
+              <p class="card__desc">
+                Un temps d’ancrage autour du récit personnel. L’image et l’écriture
+                deviennent des points d’appui pour structurer, relire et partager.
+              </p>
+            </div>
+          </a>
+
+          <!-- FLOW -->
+          <a class="card" href="produit.html">
+            <div class="card__media">
+              <img src="./assets/img/poch3.png" alt="Atelier FLOW" loading="lazy">
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">ATELIER LIBRE</div>
+              <div class="card__title">ATELIER 3</div>
+              <div class="card__meta">Écriture • Mouvement • Expression</div>
+              <p class="card__desc">
+                Un atelier plus libre où la parole circule par le geste, l’écriture et l’expression.
+                Les supports visuels ouvrent un espace fluide et spontané.
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p>© <span id="year"></span> YEIRN</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
