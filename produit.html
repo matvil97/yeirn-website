@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — ECHO</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail" aria-label="Navigation">
+      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+      <a class="rail__brand" href="index.html" aria-label="YEIRN">
+        <span class="rail__dot"></span><span class="rail__name">YEIRN</span>
+      </a>
+      <nav class="rail__nav" data-drawer>
+        <ul class="rail__menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="ateliers.html">Ateliers</a></li>
+          <li><a href="kits.html">Kits</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="product container">
+        <header class="product__head">
+          <div>
+            <h1 class="product__title">ECHO</h1>
+            <p class="product__subtitle">ATELIER THÉMATIQUE</p>
+            <p class="product__desc">
+              Un atelier pour explorer la parole comme matière créative : écouter, reformuler, écrire, transformer.
+            </p>
+          </div>
+
+          <div class="product__pricebox">
+            <div class="product__price">À PARTIR <strong>49€</strong></div>
+            <div class="product__small">Session / personne</div>
+          </div>
+        </header>
+
+        <div class="product__grid">
+          <!-- Galerie -->
+          <div class="gallery">
+            <div class="gallery__thumbs" aria-label="Miniatures">
+              <button class="thumb is-active" data-thumb="0" aria-label="Image 1"></button>
+              <button class="thumb" data-thumb="1" aria-label="Image 2"></button>
+              <button class="thumb" data-thumb="2" aria-label="Image 3"></button>
+            </div>
+            <div class="gallery__main" aria-label="Image principale">
+              <div class="gallery__img" data-gallery-main></div>
+            </div>
+          </div>
+
+          <!-- Infos + accordéons -->
+          <div class="product__side">
+            <div class="accordion" data-accordion>
+              <button class="accordion__btn" aria-expanded="true">
+                SUPPORT <span class="chev">▾</span>
+              </button>
+              <div class="accordion__panel is-open">
+                <p>Présentiel / visio. Matériel fourni selon formule.</p>
+              </div>
+
+              <button class="accordion__btn" aria-expanded="false">
+                DIMENSION <span class="chev">▾</span>
+              </button>
+              <div class="accordion__panel">
+                <p>Durée : 1h30 à 2h — Groupe : 6 à 12 personnes.</p>
+              </div>
+
+              <button class="accordion__btn" aria-expanded="false">
+                OPTION <span class="chev">▾</span>
+              </button>
+              <div class="accordion__panel">
+                <p>Pack duo / entreprises / suivi créatif.</p>
+              </div>
+            </div>
+
+            <div class="qty">
+              <span class="qty__label">Quantité</span>
+              <div class="qty__ctrl">
+                <button type="button" class="qty__btn" data-qty="-1" aria-label="Diminuer">−</button>
+                <input class="qty__input" type="number" min="1" value="1" data-qty-input />
+                <button type="button" class="qty__btn" data-qty="1" aria-label="Augmenter">+</button>
+              </div>
+            </div>
+
+            <button class="btn btn--full" type="button">Réserver</button>
+            <p class="muted">*Fonctionnalité de paiement en cours de développement.</p>
+          </div>
+
+          <!-- Tabs -->
+          <div class="product__tabs">
+            <div class="tabs" data-tabs>
+              <div class="tabs__bar" role="tablist">
+                <button class="tabs__tab is-active" role="tab" aria-selected="true" data-tab="desc">DESCRIPTIF</button>
+                <button class="tabs__tab" role="tab" aria-selected="false" data-tab="cond">CONDITION</button>
+                <button class="tabs__tab" role="tab" aria-selected="false" data-tab="faq">FAQ</button>
+                <button class="tabs__tab" role="tab" aria-selected="false" data-tab="avis">AVIS</button>
+              </div>
+
+              <div class="tabs__panel is-active" role="tabpanel" data-panel="desc">
+                <h3>Ce que tu vas vivre</h3>
+                <ul class="list">
+                  <li>Temps d’écoute & amorce (guidée)</li>
+                  <li>Écriture brève (prompts)</li>
+                  <li>Mise en forme créative (carte, mini-édition)</li>
+                </ul>
+              </div>
+
+              <div class="tabs__panel" role="tabpanel" data-panel="cond">
+                <h3>Conditions</h3>
+                <p>Annulation jusqu’à 48h. Reprogrammation possible selon créneaux.</p>
+              </div>
+
+              <div class="tabs__panel" role="tabpanel" data-panel="faq">
+                <h3>FAQ</h3>
+                <p><strong>Faut-il savoir écrire ?</strong> Non, l’atelier est guidé.</p>
+              </div>
+
+              <div class="tabs__panel" role="tabpanel" data-panel="avis">
+                <h3>Avis</h3>
+                <p class="muted">Section design — tu brancheras les avis plus tard.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Complémentaires -->
+          <aside class="product__upsell">
+            <h3 class="aside__title">PRODUIT COMPLÉMENTAIRE</h3>
+            <div class="stack">
+              <a class="mini" href="produit.html">
+                <div class="mini__img"></div>
+                <div>
+                  <div class="mini__title">ECHO — HOME</div>
+                  <div class="mini__meta">Kit • À partir de 29€</div>
+                </div>
+              </a>
+              <a class="mini" href="produit.html">
+                <div class="mini__img"></div>
+                <div>
+                  <div class="mini__title">ANCHOR — HOME</div>
+                  <div class="mini__meta">Kit • À partir de 29€</div>
+                </div>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p>© <span id="year"></span> YEIRN</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

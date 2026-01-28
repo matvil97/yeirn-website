@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — Inscription</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail" aria-label="Navigation">
+      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+      <a class="rail__brand" href="index.html" aria-label="YEIRN">
+        <span class="rail__dot"></span><span class="rail__name">YEIRN</span>
+      </a>
+      <nav class="rail__nav" data-drawer>
+        <ul class="rail__menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="ateliers.html">Ateliers</a></li>
+          <li><a href="kits.html">Kits</a></li>
+          <li><a class="is-active" href="inscription.html">Inscription</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="container auth">
+        <header class="auth__head">
+          <h1 class="auth__title">Inscription</h1>
+          <p class="auth__lead">Crée ton espace YEIRN (version MVP sans base de données).</p>
+        </header>
+
+        <form class="form" id="registerForm" novalidate>
+          <div class="grid grid--2">
+            <label class="field">
+              <span>Prénom</span>
+              <input name="firstName" type="text" autocomplete="given-name" />
+            </label>
+
+            <label class="field">
+              <span>Nom</span>
+              <input name="lastName" type="text" autocomplete="family-name" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Email *</span>
+            <input name="email" type="email" required autocomplete="email" />
+          </label>
+
+          <label class="field">
+            <span>Téléphone (optionnel)</span>
+            <input name="phone" type="tel" autocomplete="tel" />
+          </label>
+
+          <fieldset class="fieldset">
+            <legend>Centres d’intérêt</legend>
+            <label class="check"><input type="checkbox" name="interest" value="Ateliers" /> Ateliers</label>
+            <label class="check"><input type="checkbox" name="interest" value="Kits" /> Kits</label>
+            <label class="check"><input type="checkbox" name="interest" value="Événements" /> Événements</label>
+          </fieldset>
+
+          <label class="check check--rgpd">
+            <input type="checkbox" name="consent" required />
+            J’accepte que mes informations soient utilisées pour me recontacter (RGPD).
+          </label>
+
+          <div class="form__row">
+            <button class="btn" type="submit">S’inscrire</button>
+            <button class="btn btn--ghost" type="button" id="exportCsvBtn">Exporter CSV</button>
+          </div>
+
+          <p class="muted" id="formMsg" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p>© <span id="year"></span> YEIRN</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/register.js"></script>
+</body>
+</html>
