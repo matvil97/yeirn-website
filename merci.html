@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — Merci</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .thanks{
+      padding: 60px 0 40px;
+    }
+    .thanks__box{
+      width: min(var(--container), calc(100% - 64px));
+      margin-inline:auto;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+    .thanks__title{
+      margin:0 0 10px;
+      font-size: 22px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .thanks__p{ color: var(--muted); line-height: 1.7; margin:0 0 14px; }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail" aria-label="Navigation">
+      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+
+      <a class="rail__brand" href="index.html" aria-label="YEIRN">
+        <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
+      </a>
+
+      <nav class="rail__nav" data-drawer>
+        <ul class="rail__menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="ateliers.html">Ateliers</a></li>
+          <li><a href="kits.html">Kits</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="thanks">
+        <div class="thanks__box">
+          <h1 class="thanks__title">Merci !</h1>
+          <p class="thanks__p">
+            Ton inscription à <strong>Free Worship</strong> est confirmée.
+            Si un paiement était requis, il a bien été pris en compte.
+          </p>
+          <p class="thanks__p">
+            Tu recevras un email avec les informations pratiques (date, lieu, horaires).
+          </p>
+
+          <div class="hero__cta" style="margin-top: 10px;">
+            <a class="btn" href="free-worship.html">Retour à l’événement</a>
+            <a class="btn btn--ghost" href="index.html">Retour accueil</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p>© <span id="year"></span> YEIRN</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

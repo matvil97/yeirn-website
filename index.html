@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YEIRN — Accueil</title>
+  <title>YEIRN — Free Worship</title>
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
@@ -13,14 +13,17 @@
         <span></span><span></span><span></span>
       </button>
 
-      <!-- LOGO -->
       <a class="rail__brand" href="index.html" aria-label="YEIRN">
-        <img class="rail__logo" src="./assets/img/logo.png" alt="Logo YEIRN" />
+        <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
       </a>
 
       <nav class="rail__nav" data-drawer>
         <ul class="rail__menu">
-          <li><a class="is-active" href="index.html">Accueil</a></li>
+          <!-- Landing = Free Worship -->
+          <li><a class="is-active" href="index.html">Free Worship</a></li>
+
+          <!-- Si tu gardes l’ancien accueil, renomme-le en home.html -->
+          <li><a href="home.html">YEIRN</a></li>
           <li><a href="ateliers.html">Ateliers</a></li>
           <li><a href="kits.html">Kits</a></li>
           <li><a href="inscription.html">Inscription</a></li>
@@ -28,107 +31,173 @@
       </nav>
     </aside>
 
+
     <main class="main">
-      <!-- HERO -->
-      <section class="hero">
+      <!-- HERO EVENT -->
+      <section class="hero hero--event">
         <div class="container">
-        <h1 class="hero__title">
-        LA PAROLE<br />
-    <span class="accent" id="dynamic-word">GUIDE</span> TON ART
-        </h1>
+          <h1 class="hero__title">
+            FREE<br />
+            <span class="accent">WORSHIP</span>
+          </h1>
           <p class="hero__lead">
-            Ateliers thématiques & kits créatifs pour explorer la parole, l’écriture et l’expression.
+            Un temps libre de louange, d’expression et de présence — sans performance, avec simplicité.
           </p>
           <div class="hero__cta">
-            <a class="btn" href="ateliers.html">Découvrir les ateliers</a>
-            <a class="btn btn--ghost" href="kits.html">Voir les kits</a>
+            <a class="btn" href="#inscription">S’inscrire</a>
+            <a class="btn btn--ghost" href="#concept">Découvrir le concept</a>
           </div>
         </div>
       </section>
 
-      <!-- ATELIERS -->
-      <section class="section">
-        <div class="container section__head">
-          <h2 class="section__title">NOS ATELIERS</h2>
-          <a class="section__link" href="ateliers.html">Voir tout</a>
-        </div>
+      <!-- CONCEPT -->
+      <section id="concept" class="section section--wide">
+        <div class="container grid grid--2">
+          <div>
+            <h2 class="fw__h2">Qu’est-ce que le Free Worship ?</h2>
+            <p class="fw__p">
+              Le Free Worship est un espace ouvert où chacun est invité à entrer dans un temps de louange libre.
+              Un moment pour se déposer, écouter, chanter, prier, écrire, exprimer ,dans la présence de l'Eternel.
+            </p>
+            <div class="fw__bullets">
+              <div class="fw__bullet">• Un esprit simple, sincère et accessible</div>
+              <div class="fw__bullet">• Un temps guidé par la présence</div>
+              <div class="fw__bullet">• Une atmosphère calme et créative</div>
+            </div>
+          </div>
 
-        <div class="container grid grid--3">
-          <a class="card" href="produit.html">
-            <div class="card__media">
-              <img src="./assets/img/poch1.png" alt="Atelier ECHO" loading="lazy">
-            </div>
-            <div class="card__body">
-              <div class="card__kicker">ATELIER THÉMATIQUE</div>
-              <div class="card__title">Pochette rose</div>
-              <div class="card__meta">Parole • Écoute • Création</div>
-            </div>
-          </a>
+          <div class="fw__visual">
+            <div class="fw__line fw__line--a"></div>
+            <div class="fw__line fw__line--b"></div>
+            <div class="fw__line fw__line--c"></div>
 
-          <a class="card" href="produit.html">
-            <div class="card__media">
-              <img src="./assets/img/poch2.png" alt="Atelier ANCHOR" loading="lazy">
+            <div class="fw__image">
+              <img src="assets/img/Kbible2.png" alt="Free Worship visuel" loading="lazy">
             </div>
-            <div class="card__body">
-              <div class="card__kicker">ATELIER THÉMATIQUE</div>
-              <div class="card__title">Pochette verte</div>
-              <div class="card__meta">Ancrage • Récit • Partage</div>
-            </div>
-          </a>
-
-          <a class="card" href="produit.html">
-            <div class="card__media">
-              <img src="./assets/img/poch3.png" alt="Atelier FLOW" loading="lazy">
-            </div>
-            <div class="card__body">
-              <div class="card__kicker">ATELIER THÉMATIQUE</div>
-              <div class="card__title">Pochette bleu marine</div>
-              <div class="card__meta">Écriture • Mouvement • Expression</div>
-            </div>
-          </a>
+          </div>
         </div>
       </section>
 
-      <!-- KITS (VITRINE UNIQUEMENT) -->
+      <!-- POUR QUI -->
+      <section class="section section--wide">
+        <div class="container grid grid--2">
+          <div class="fw__visual fw__visual--alt">
+            <div class="fw__line fw__line--d"></div>
+            <div class="fw__line fw__line--e"></div>
+
+            <div class="fw__image">
+              <img src="assets/img/Kbible1.png" alt="Free Worship pour qui" loading="lazy">
+            </div>
+          </div>
+
+          <div>
+            <h2 class="fw__h2">À qui ça s’adresse ?</h2>
+            <p class="fw__p">
+              À toute personne qui souhaite vivre un temps de worship simple, sans prérequis.
+              Que tu sois à l’aise avec le chant ou plutôt dans l’écoute, tu as ta place.
+            </p>
+            <div class="fw__bullets">
+              <div class="fw__bullet">• Débutants bienvenus</div>
+              <div class="fw__bullet">• Individuel ou entre amis</div>
+              <div class="fw__bullet">• Pour se recentrer et se laisser renouveler</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INFOS PRATIQUES -->
       <section class="section">
+        <div class="container">
+          <div class="fw__bar">
+            <div>
+              <div class="fw__label">DATE</div>
+              <div class="fw__value">À annoncer</div>
+            </div>
+            <div>
+              <div class="fw__label">LIEU</div>
+              <div class="fw__value">À annoncer</div>
+            </div>
+            <div>
+              <div class="fw__label">DURÉE</div>
+              <div class="fw__value">≈ 1h30</div>
+            </div>
+            <div>
+              <div class="fw__label">TARIF</div>
+              <div class="fw__value">Selon formule</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSCRIPTION -->
+      <section id="inscription" class="section">
         <div class="container section__head">
-          <h2 class="section__title">NOS KITS CRÉATIFS</h2>
-          <a class="section__link" href="kits.html">Voir tout</a>
+          <h2 class="section__title">INSCRIPTION</h2>
+          <span class="section__link">Places limitées</span>
         </div>
 
-        <div class="container grid grid--3">
-          <a class="card" href="kits.html">
-            <div class="card__media card__media--alt">
-              <img src="./assets/img/Kbible1.png" alt="Kit ECHO — HOME" loading="lazy">
-            </div>
-            <div class="card__body">
-              <div class="card__kicker">KIT</div>
-              <div class="card__title">KIT BIBLE — MARRON</div>
-              <div class="card__meta">Découvrir le kit</div>
-            </div>
-          </a>
+        <div class="container grid grid--2 fw__signup">
+          <!-- Form -->
+          <div class="fw__panel">
+            <h3 class="fw__h3">Je m’inscris</h3>
+            <p class="fw__p">
+              Remplis tes informations puis procède au paiement si nécessaire.
+              Tu recevras une confirmation automatique.
+            </p>
 
-          <a class="card" href="kits.html">
-            <div class="card__media card__media--alt">
-              <img src="./assets/img/Kbible2.png" alt="Kit ANCHOR — HOME" loading="lazy">
-            </div>
-            <div class="card__body">
-              <div class="card__kicker">KIT</div>
-              <div class="card__title">KIT BIBLE — BLEU VERT</div>
-              <div class="card__meta">Découvrir le kit</div>
-            </div>
-          </a>
+            <form id="freeWorshipForm" class="fw__form">
+              <label class="fw__field">
+                <span>Prénom</span>
+                <input type="text" name="firstName" autocomplete="given-name" required />
+              </label>
 
-          <a class="card" href="kits.html">
-            <div class="card__media card__media--alt">
-              <img src="./assets/img/Kbible3.png" alt="Kit FLOW — HOME" loading="lazy">
+              <label class="fw__field">
+                <span>Nom</span>
+                <input type="text" name="lastName" autocomplete="family-name" required />
+              </label>
+
+              <label class="fw__field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+
+              <label class="fw__field">
+                <span>Téléphone (optionnel)</span>
+                <input type="tel" name="phone" autocomplete="tel" />
+              </label>
+
+              <label class="fw__check">
+                <input type="checkbox" name="consent" required />
+                <span>J’accepte d’être recontacté(e) par YEIRN au sujet de Free Worship.</span>
+              </label>
+
+              <button class="btn" type="submit" style="width:100%;">Continuer</button>
+              <p class="fw__note" id="fwMsg" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <!-- Payment -->
+          <div class="fw__panel fw__panel--ghost">
+            <h3 class="fw__h3">Paiement</h3>
+            <p class="fw__p">
+              Paiement simple et sécurisé via Stripe.
+              Tu seras redirigé(e) vers la page de paiement.
+            </p>
+
+            <div class="fw__pricebox">
+              <div class="fw__price">À partir de 20€</div>
+              <div class="fw__muted">Le prix peut dépendre de la formule / session.</div>
             </div>
-            <div class="card__body">
-              <div class="card__kicker">KIT</div>
-              <div class="card__title">KIT BIBLE — ROUGE</div>
-              <div class="card__meta">Découvrir le kit</div>
-            </div>
-          </a>
+
+            <a class="btn" id="payBtn" href="#" style="width:100%;">Payer avec Stripe</a>
+            <a class="btn btn--ghost" href="inscription.html" style="width:100%; margin-top:10px;">
+              S’inscrire (Google Form)
+            </a>
+
+            <p class="fw__small">
+              Après paiement, tu seras redirigé(e) vers la page de confirmation.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -140,6 +209,7 @@
     </main>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/free-worship.js"></script>
 </body>
 </html>

@@ -326,3 +326,139 @@ transform: scale(0.20);
   line-height: 1.7;
   color: var(--muted);
 }
+/* =========================
+   Free Worship page styles
+   ========================= */
+.hero--event .hero__title{ letter-spacing:.04em; }
+
+.section--wide{ padding: 26px 0 56px; }
+.grid--2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 980px){
+  .grid--2{ grid-template-columns: 1fr; }
+}
+
+.fw__h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.fw__h3{
+  margin: 0 0 10px;
+  font-size: 14px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.fw__p{
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.fw__bullets{ display:flex; flex-direction:column; gap:6px; }
+.fw__bullet{ color: var(--muted); font-size: 13px; }
+
+.fw__visual{
+  position: relative;
+  min-height: 240px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.fw__image{
+  width: min(520px, 100%);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:#f3f3f3;
+}
+.fw__image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  transform: scale(.92);
+}
+
+.fw__line{
+  position:absolute;
+  height:2px;
+  background: var(--accent);
+  opacity:.9;
+}
+.fw__line--a{ width: 70%; top: 20%; left: 10%; }
+.fw__line--b{ width: 55%; top: 50%; left: 20%; opacity:.6; }
+.fw__line--c{ width: 75%; top: 78%; left: 8%; opacity:.45; }
+.fw__line--d{ width: 70%; top: 25%; left: 12%; }
+.fw__line--e{ width: 52%; top: 68%; left: 24%; opacity:.55; }
+
+.fw__bar{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+@media (max-width: 980px){
+  .fw__bar{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.fw__label{
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.fw__value{ font-size: 14px; font-weight: 600; }
+
+.fw__signup{ align-items: start; }
+.fw__panel{
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:#fff;
+  padding: 14px;
+}
+.fw__panel--ghost{
+  border-color: var(--line);
+  background: #fff;
+}
+
+.fw__form{ display:flex; flex-direction:column; gap:10px; }
+.fw__field span{
+  display:block;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.fw__field input{
+  width:100%;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  padding: 0 12px;
+  outline: none;
+}
+.fw__field input:focus{
+  border-color:#111;
+}
+.fw__check{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.fw__note{ margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.fw__small{ margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+.fw__pricebox{
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 10px 0 12px;
+}
+.fw__price{ font-weight: 800; letter-spacing: .02em; }
+.fw__muted{ color: var(--muted); font-size: 13px; margin-top: 6px; }
