@@ -1,29 +1,17 @@
-// free-worship.js — YEIRN
-// Objectif : inscription simple + redirection Stripe
-
-const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/7sY8wI9LQa1r7NU6NHfQI00";
+// free-worship.js — inscription gratuite (entrée free worship)
+// Les options payantes sont gérées via liens Stripe séparés.
 
 const form = document.getElementById("freeWorshipForm");
 const msg = document.getElementById("fwMsg");
-const payBtn = document.getElementById("payBtn");
-
-// Pré-remplissage du bouton de paiement (toujours disponible)
-if (payBtn) {
-  payBtn.href = STRIPE_PAYMENT_LINK;
-  payBtn.target = "_blank";
-  payBtn.rel = "noopener";
-}
 
 function setMsg(text) {
   if (!msg) return;
   msg.textContent = text || "";
 }
 
-// Mini validation + stockage local (optionnel)
-// Ici : on stocke juste la personne pour “tracer” côté front (sans DB)
 function saveLocalSignup(data) {
   try {
-    const KEY = "yeirn_free_worship_signups";
+    const KEY = "yeirn_free_worship_free_signups";
     const list = JSON.parse(localStorage.getItem(KEY) || "[]");
     list.push({ ...data, createdAt: new Date().toISOString() });
     localStorage.setItem(KEY, JSON.stringify(list));
@@ -57,8 +45,7 @@ if (form) {
 
     saveLocalSignup({ firstName, lastName, email, phone });
 
-    // Redirection Stripe (simple, sécurisé, sans backend)
-    // Stripe gère paiement + email + redirect success/cancel
-    window.location.href = STRIPE_PAYMENT_LINK;
+    form.reset();
+    setMsg("✅ Inscription enregistrée. L’entrée est gratuite. (Options payantes disponibles à droite)");
   });
 }

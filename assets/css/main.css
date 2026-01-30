@@ -5,7 +5,9 @@
   --line:#ececec;
   --accent:#d84b3e;
 
-  --rail-w: 84px;
+  /* ✅ Sidebar plus large */
+  --rail-w: 120px;
+
   --container: 1140px;
   --radius: 14px;
   --shadow: 0 14px 34px rgba(0,0,0,.08);
@@ -40,14 +42,20 @@ img{ display:block; max-width:100%; }
   position:sticky;
   top:0;
   height:100vh;
+
+  /* ✅ séparation repoussée visuellement */
   border-right:1px solid var(--line);
+  padding-right: 12px;
+
   background:#fff;
 
   display:flex;
   flex-direction:column;
-  align-items:center;
-  gap:14px;
 
+  /* ✅ le menu prend toute la largeur */
+  align-items: stretch;
+
+  gap:14px;
   padding:16px 0;
   z-index:10;
 }
@@ -62,6 +70,9 @@ img{ display:block; max-width:100%; }
   border-radius:12px;
   display:grid;
   place-items:center;
+
+  /* ✅ centré dans la rail */
+  margin-inline:auto;
 }
 .rail__burger:hover{ background:#f6f6f6; }
 .rail__burger span{
@@ -74,23 +85,24 @@ img{ display:block; max-width:100%; }
 
 /* LOGO */
 .rail__brand{
-  width:56px;
-  height:56px;
+  width:64px;
+  height:64px;
   border-radius:999px;
   display:grid;
   place-items:center;
+  margin-inline:auto;
 }
 .rail__brand:hover{ background:#f7f7f7; }
 
 .rail__logo{
-  width:38px;
+  width:42px;   /* un peu plus grand */
   height:auto;
 }
 
 /* NAV (fermée par défaut) */
 .rail__nav{
   width:100%;
-  padding:0 12px;
+  padding:0 16px;
 
   opacity:0;
   pointer-events:none;
@@ -111,20 +123,22 @@ img{ display:block; max-width:100%; }
   padding:0;
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:10px;
 }
 
+/* ✅ Menus plus grands / plus faciles à cliquer */
 .rail__menu a{
   display:block;
-  padding:10px 12px;
-  border-radius:12px;
-  font-size:13px;
-  line-height:1;
+  padding:14px 16px;
+  border-radius:14px;
+  font-size:14px;
+  line-height:1.15;
 }
 .rail__menu a:hover{ background:#f6f6f6; }
 .rail__menu a.is-active{
   background:#111;
   color:#fff;
+  font-weight:600;
 }
 
 /* MAIN */
@@ -212,9 +226,7 @@ img{ display:block; max-width:100%; }
 }
 
 /* =========================
-   MEDIA (✅ version clean, unique)
-   - Même cadrage pour toutes
-   - Dézoom pour voir la Bible entière
+   CARD MEDIA — cadrage clean
    ========================= */
 .card__media{
   position: relative;
@@ -224,22 +236,15 @@ img{ display:block; max-width:100%; }
   background: #f3f3f3;
 }
 
-/* Si tu veux un rendu un peu différent pour alt, tu peux laisser pareil */
-/* .card__media--alt removed to avoid empty ruleset */
-
-/* (media image) */
 .card__media img{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
-transform: scale(0.20);
   object-fit: cover;
-
-  /* même cadrage que l'image du milieu */
   object-position: 50% 45%;
 
-  /* 👇 reculer l’image pour voir la pochette entière */
+  /* ✅ reculer l’image pour voir plus de contenu */
   transform: scale(0.88);
 
   display:block;
@@ -265,6 +270,13 @@ transform: scale(0.20);
   color:var(--muted);
 }
 
+.card__desc{
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
 /* FOOTER */
 .footer{
   border-top:1px solid var(--line);
@@ -281,51 +293,6 @@ transform: scale(0.20);
   .grid--3{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 640px){
-  .grid--3{ grid-template-columns: 1fr; }
-
-  /* Drawer mobile */
-  .rail__nav{
-    position:fixed;
-    top:0;
-    left:0;
-    height:100vh;
-    width:min(300px, 86vw);
-    background:#fff;
-    border-right:1px solid var(--line);
-    padding:88px 14px 14px;
-
-    opacity:1;
-    pointer-events:auto;
-    transform: translateX(-105%);
-    transition: transform .2s ease;
-    z-index:30;
-  }
-
-  .rail.is-open .rail__nav{
-    transform: translateX(0);
-  }
-
-  .rail__burger{
-    position:fixed;
-    top:12px;
-    left:12px;
-    background:#fff;
-    border:1px solid var(--line);
-    z-index:40;
-  }
-
-  /* Sur mobile, on peut légèrement moins dézoomer */
-  .card__media img{
-    transform: scale(0.92);
-  }
-}
-.card__desc{
-  margin: 8px 0 0;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--muted);
-}
 /* =========================
    Free Worship page styles
    ========================= */
@@ -464,16 +431,14 @@ transform: scale(0.20);
 .fw__muted{ color: var(--muted); font-size: 13px; margin-top: 6px; }
 
 /* =========================
-   MOBILE FIX — layout + nav
+   MOBILE FIX — topbar + drawer
    ========================= */
 @media (max-width: 640px){
 
-  /* 1 colonne sur mobile (sinon la rail bouffe 84px) */
-  .layout{
-    grid-template-columns: 1fr;
-  }
+  /* 1 colonne sur mobile */
+  .layout{ grid-template-columns: 1fr; }
 
-  /* Rail devient une topbar */
+  /* Rail devient topbar */
   .rail{
     position: fixed;
     top: 0;
@@ -494,48 +459,48 @@ transform: scale(0.20);
     z-index: 50;
   }
 
-  /* Le contenu doit descendre sous la topbar */
-  .main{
-    padding-top: 76px;
-  }
+  .main{ padding-top: 76px; }
 
-  /* Burger dans la topbar (on annule le fixed que tu avais) */
-  .rail__burger{
-    position: static;
-    top: auto;
-    left: auto;
-    z-index: auto;
-  }
+  /* Burger dans la topbar */
+  .rail__burger{ position: static; }
 
-  /* Logo un peu plus présent */
+  /* Logo */
   .rail__brand{
     width: auto;
     height: 44px;
     padding: 0 10px;
   }
+  .rail__logo{ width: 40px; }
 
-  .rail__logo{
-    width: 40px;
-  }
-
-  /* Drawer : on l’aligne sous la topbar */
+  /* Drawer mobile */
   .rail__nav{
-    padding-top: 84px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(320px, 86vw);
+    background: #fff;
+    border-right: 1px solid var(--line);
+    padding: 88px 14px 14px;
+
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-105%);
+    transition: transform .2s ease;
+    z-index: 30;
   }
-}
-@media (max-width: 640px){
+
+  .rail.is-open .rail__nav{ transform: translateX(0); }
+
+  /* Cards images: léger ajustement */
+  .card__media img{ transform: scale(0.92); }
+
   /* Hero moins massif */
-  .hero{
-    padding: 36px 0 18px;
-  }
+  .hero{ padding: 36px 0 18px; }
 
   /* Bar infos en 1 colonne */
-  .fw__bar{
-    grid-template-columns: 1fr !important;
-  }
+  .fw__bar{ grid-template-columns: 1fr !important; }
 
-  /* On calme un peu les lignes déco si ça surcharge */
-  .fw__line{
-    opacity: .35;
-  }
+  /* Lignes déco plus légères */
+  .fw__line{ opacity: .35; }
 }

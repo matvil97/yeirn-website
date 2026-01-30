@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YEIRN — Free Worship</title>
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
+
 </head>
 <body>
   <div class="layout">
@@ -19,18 +21,13 @@
 
       <nav class="rail__nav" data-drawer>
         <ul class="rail__menu">
-          <!-- Landing = Free Worship -->
           <li><a class="is-active" href="index.html">Free Worship</a></li>
-
-          <!-- Si tu gardes l’ancien accueil, renomme-le en home.html -->
           <li><a href="home.html">YEIRN</a></li>
           <li><a href="ateliers.html">Ateliers</a></li>
           <li><a href="kits.html">Kits</a></li>
-          <li><a href="inscription.html">Inscription</a></li>
         </ul>
       </nav>
     </aside>
-
 
     <main class="main">
       <!-- HERO EVENT -->
@@ -44,7 +41,7 @@
             Un temps libre de louange, d’expression et de présence — sans performance, avec simplicité.
           </p>
           <div class="hero__cta">
-            <a class="btn" href="#inscription">S’inscrire</a>
+            <a class="btn" href="#inscription">S’inscrire (gratuit)</a>
             <a class="btn btn--ghost" href="#concept">Découvrir le concept</a>
           </div>
         </div>
@@ -57,7 +54,7 @@
             <h2 class="fw__h2">Qu’est-ce que le Free Worship ?</h2>
             <p class="fw__p">
               Le Free Worship est un espace ouvert où chacun est invité à entrer dans un temps de louange libre.
-              Un moment pour se déposer, écouter, chanter, prier, écrire, exprimer ,dans la présence de l'Eternel.
+              Un moment pour se déposer, écouter, chanter, prier, écrire, exprimer, dans la présence de l’Éternel.
             </p>
             <div class="fw__bullets">
               <div class="fw__bullet">• Un esprit simple, sincère et accessible</div>
@@ -122,27 +119,27 @@
               <div class="fw__value">≈ 1h30</div>
             </div>
             <div>
-              <div class="fw__label">TARIF</div>
-              <div class="fw__value">Selon formule</div>
+              <div class="fw__label">ENTRÉE</div>
+              <div class="fw__value">GRATUITE</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- INSCRIPTION -->
+      <!-- INSCRIPTION GRATUITE -->
       <section id="inscription" class="section">
         <div class="container section__head">
           <h2 class="section__title">INSCRIPTION</h2>
-          <span class="section__link">Places limitées</span>
+          <span class="section__link">Entrée gratuite</span>
         </div>
 
         <div class="container grid grid--2 fw__signup">
-          <!-- Form -->
+          <!-- Form (gratuit) -->
           <div class="fw__panel">
-            <h3 class="fw__h3">Je m’inscris</h3>
+            <h3 class="fw__h3">Je m’inscris (gratuit)</h3>
             <p class="fw__p">
-              Remplis tes informations puis procède au paiement si nécessaire.
-              Tu recevras une confirmation automatique.
+              L’entrée dans la louange est <strong>gratuite</strong>. L’inscription permet de réserver ta place
+              et de recevoir les infos pratiques.
             </p>
 
             <form id="freeWorshipForm" class="fw__form">
@@ -171,31 +168,45 @@
                 <span>J’accepte d’être recontacté(e) par YEIRN au sujet de Free Worship.</span>
               </label>
 
-              <button class="btn" type="submit" style="width:100%;">Continuer</button>
+              <button class="btn" type="submit" style="width:100%;">Valider mon inscription</button>
               <p class="fw__note" id="fwMsg" aria-live="polite"></p>
+
+              <p class="fw__small">
+                (Alternative) Tu peux aussi t’inscrire via Google Form :
+                <a href="inscription.html" style="text-decoration:underline; text-underline-offset:3px;">ouvrir le formulaire</a>
+              </p>
             </form>
           </div>
 
-          <!-- Payment -->
+          <!-- Options payantes -->
           <div class="fw__panel fw__panel--ghost">
-            <h3 class="fw__h3">Paiement</h3>
+            <h3 class="fw__h3">Activités payantes (optionnelles)</h3>
             <p class="fw__p">
-              Paiement simple et sécurisé via Stripe.
-              Tu seras redirigé(e) vers la page de paiement.
+              L’entrée est gratuite. Certaines activités/ressources peuvent être payantes
+              (selon la session).
             </p>
 
             <div class="fw__pricebox">
-              <div class="fw__price">À partir de 20€</div>
-              <div class="fw__muted">Le prix peut dépendre de la formule / session.</div>
+              <div class="fw__price">Exemples d’options</div>
+              <div class="fw__muted">Choisis uniquement si tu le souhaites.</div>
             </div>
 
-            <a class="btn" id="payBtn" href="#" style="width:100%;">Payer avec Stripe</a>
-            <a class="btn btn--ghost" href="inscription.html" style="width:100%; margin-top:10px;">
-              S’inscrire (Google Form)
-            </a>
+            <div class="fw__options">
+              <a class="btn" href="https://buy.stripe.com/test_5kQ5kF7832MkgQQ5jxaR200" target="_blank" rel="noopener" style="width:100%;">
+                Réserver une activité (20€)
+              </a>
+
+              <a class="btn btn--ghost" href="kits.html" style="width:100%; margin-top:10px;">
+                Voir les kits (option payante)
+              </a>
+
+              <a class="btn btn--ghost" href="ateliers.html" style="width:100%; margin-top:10px;">
+                Voir les ateliers (option payante)
+              </a>
+            </div>
 
             <p class="fw__small">
-              Après paiement, tu seras redirigé(e) vers la page de confirmation.
+              Après paiement Stripe, tu pourras être redirigé(e) vers une page de confirmation.
             </p>
           </div>
         </div>
@@ -209,7 +220,7 @@
     </main>
   </div>
 
-  <script src="./assets/js/main.js"></script>
-  <script src="./assets/js/free-worship.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/free-worship.js"></script>
 </body>
 </html>
