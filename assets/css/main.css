@@ -462,3 +462,80 @@ transform: scale(0.20);
 }
 .fw__price{ font-weight: 800; letter-spacing: .02em; }
 .fw__muted{ color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+/* =========================
+   MOBILE FIX — layout + nav
+   ========================= */
+@media (max-width: 640px){
+
+  /* 1 colonne sur mobile (sinon la rail bouffe 84px) */
+  .layout{
+    grid-template-columns: 1fr;
+  }
+
+  /* Rail devient une topbar */
+  .rail{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 64px;
+    width: 100%;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 12px;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    z-index: 50;
+  }
+
+  /* Le contenu doit descendre sous la topbar */
+  .main{
+    padding-top: 76px;
+  }
+
+  /* Burger dans la topbar (on annule le fixed que tu avais) */
+  .rail__burger{
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+  }
+
+  /* Logo un peu plus présent */
+  .rail__brand{
+    width: auto;
+    height: 44px;
+    padding: 0 10px;
+  }
+
+  .rail__logo{
+    width: 40px;
+  }
+
+  /* Drawer : on l’aligne sous la topbar */
+  .rail__nav{
+    padding-top: 84px;
+  }
+}
+@media (max-width: 640px){
+  /* Hero moins massif */
+  .hero{
+    padding: 36px 0 18px;
+  }
+
+  /* Bar infos en 1 colonne */
+  .fw__bar{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* On calme un peu les lignes déco si ça surcharge */
+  .fw__line{
+    opacity: .35;
+  }
+}
