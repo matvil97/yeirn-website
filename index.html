@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YEIRN — Free Worship</title>
 
-  <meta name="description" content="Free Worship — un temps libre de louange, d’expression et de présence. Entrée gratuite, inscription recommandée. Options payantes disponibles." />
+  <meta name="description" content="Free Worship — un temps libre de louange, d’expression et de présence. Entrée gratuite sur inscription. Activité peinture optionnelle." />
 
-  <!-- ✅ Favicon (logo dans l’onglet) -->
   <link rel="icon" href="assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/logo.png" />
 
-  <!-- ✅ Police moderne -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -36,194 +34,85 @@
           <li><a href="home.html">YEIRN</a></li>
           <li><a href="ateliers.html">Ateliers</a></li>
           <li><a href="kits.html">Kits</a></li>
+          <li><a href="participer.html">Participer</a></li>
         </ul>
       </nav>
     </aside>
 
     <main class="main">
-      <!-- HERO EVENT -->
-      <section class="hero hero--event reveal">
-        <div class="container">
-          <h1 class="hero__title">
-            FREE<br />
-            <span class="accent">WORSHIP</span>
-          </h1>
-          <p class="hero__lead">
-            Un temps libre de louange, d’expression et de présence — sans performance, avec simplicité.
-          </p>
-          <div class="hero__cta">
-            <a class="btn" href="#inscription">S’inscrire (gratuit)</a>
-            <a class="btn btn--ghost" href="#concept">Découvrir le concept</a>
+      <!-- HERO + GRILLE "FRAME LIKE" -->
+      <section class="fwFrame">
+        <div class="container fwFrame__grid">
+
+          <!-- Col gauche : titre + texte -->
+          <div class="fwFrame__left">
+            <h1 class="fwFrame__title">
+              FREE<br />
+              <span class="accent">WORSHIP</span>
+            </h1>
+
+            <p class="fwFrame__lead">
+              Un temps libre de louange, d’expression et de présence — sans performance, avec simplicité.
+            </p>
+
+            <div class="fwFrame__text">
+              <p>Un espace où l’adoration ne se limite pas à une seule expression.</p>
+              <p>La musique accompagne.</p>
+              <p>La Parole est partagée.</p>
+              <p>Et chacun est libre de répondre à Dieu à sa manière.</p>
+              <p><strong>La louange est gratuite (sur inscription).</strong></p>
+              <p>Des activités créatives payantes peuvent être proposées au cours de la soirée.</p>
+            </div>
+
+            <div class="fwFrame__cta">
+              <a class="btn" href="participer.html">Participer</a>
+              <a class="btn btn--ghost" href="participer.html#options">Voir les options</a>
+            </div>
           </div>
+
+          <!-- Col centre : mosaïque + photo principale -->
+          <div class="fwFrame__media">
+            <div class="fwFrame__mosaic">
+              <img src="assets/img/Kbible1.png" alt="Free Worship - inspiration 1" loading="lazy">
+              <img src="assets/img/Kbible2.png" alt="Free Worship - inspiration 2" loading="lazy">
+              <div class="fwFrame__mosaicPh" aria-hidden="true"></div>
+              <div class="fwFrame__mosaicPh" aria-hidden="true"></div>
+            </div>
+
+            <div class="fwFrame__heroImg">
+              <!-- Remplace par ta photo event si tu as : assets/img/event.jpg -->
+              <img src="assets/img/Kbible3.png" alt="Free Worship - photo principale" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Col droite : prix + infos + bouton -->
+          <aside class="fwFrame__right">
+            <div class="fwFrame__price">0–20 €</div>
+            <p class="fwFrame__rightText">
+              Quatre heures pour louer autrement. Créer, danser, écrire, chanter, peindre.
+            </p>
+
+            <div class="fwFrame__facts">
+              <div><strong>DATE :</strong> Samedi 7 mars 2026 à 19h30</div>
+              <div><strong>LIEU :</strong> Temple évangélique du Lamentin</div>
+              <div><strong>DURÉE :</strong> 4 heures</div>
+            </div>
+
+            <div class="fwFrame__note">
+              <div><strong>OPTION</strong></div>
+              <div>Accès à la louange : gratuit (sur inscription)</div>
+              <div>Activité peinture : 20 €</div>
+            </div>
+
+            <div class="fwFrame__divider"></div>
+
+            <a class="btn" href="participer.html">Participer</a>
+          </aside>
+
         </div>
       </section>
 
-      <!-- CONCEPT -->
-      <section id="concept" class="section section--wide reveal">
-        <div class="container grid grid--2">
-          <div>
-            <h2 class="fw__h2">Qu’est-ce que le Free Worship ?</h2>
-            <p class="fw__p">
-              Le Free Worship est un espace ouvert où chacun est invité à entrer dans un temps de louange libre.
-              Un moment pour se déposer, écouter, chanter, prier, écrire, exprimer, dans la présence de l’Éternel.
-            </p>
-            <div class="fw__bullets">
-              <div class="fw__bullet">• Un esprit simple, sincère et accessible</div>
-              <div class="fw__bullet">• Un temps guidé par la présence</div>
-              <div class="fw__bullet">• Une atmosphère calme et créative</div>
-            </div>
-          </div>
-
-          <div class="fw__visual">
-            <div class="fw__line fw__line--a"></div>
-            <div class="fw__line fw__line--b"></div>
-            <div class="fw__line fw__line--c"></div>
-
-            <div class="fw__image">
-              <img src="assets/img/Kbible2.png" alt="Free Worship visuel" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- POUR QUI -->
-      <section class="section section--wide reveal">
-        <div class="container grid grid--2">
-          <div class="fw__visual fw__visual--alt">
-            <div class="fw__line fw__line--d"></div>
-            <div class="fw__line fw__line--e"></div>
-
-            <div class="fw__image">
-              <img src="assets/img/Kbible1.png" alt="Free Worship pour qui" loading="lazy">
-            </div>
-          </div>
-
-          <div>
-            <h2 class="fw__h2">À qui ça s’adresse ?</h2>
-            <p class="fw__p">
-              À toute personne qui souhaite vivre un temps de worship simple, sans prérequis.
-              Que tu sois à l’aise avec le chant ou plutôt dans l’écoute, tu as ta place.
-            </p>
-            <div class="fw__bullets">
-              <div class="fw__bullet">• Débutants bienvenus</div>
-              <div class="fw__bullet">• Individuel ou entre amis</div>
-              <div class="fw__bullet">• Pour se recentrer et se laisser renouveler</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- INFOS PRATIQUES -->
-      <section class="section reveal">
-        <div class="container">
-          <div class="fw__bar">
-            <div>
-              <div class="fw__label">DATE</div>
-              <div class="fw__value">À annoncer</div>
-            </div>
-            <div>
-              <div class="fw__label">LIEU</div>
-              <div class="fw__value">À annoncer</div>
-            </div>
-            <div>
-              <div class="fw__label">DURÉE</div>
-              <div class="fw__value">≈ 1h30</div>
-            </div>
-            <div>
-              <div class="fw__label">ENTRÉE</div>
-              <div class="fw__value">GRATUITE</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- INSCRIPTION GRATUITE -->
-      <section id="inscription" class="section reveal">
-        <div class="container section__head">
-          <h2 class="section__title">INSCRIPTION</h2>
-          <span class="section__link">Entrée gratuite</span>
-        </div>
-
-        <div class="container grid grid--2 fw__signup">
-          <!-- Form (gratuit) -->
-          <div class="fw__panel">
-            <h3 class="fw__h3">Je m’inscris (gratuit)</h3>
-            <p class="fw__p">
-              L’entrée dans la louange est <strong>gratuite</strong>. L’inscription permet de réserver ta place
-              et de recevoir les infos pratiques.
-            </p>
-
-            <form id="freeWorshipForm" class="fw__form">
-              <label class="fw__field">
-                <span>Prénom</span>
-                <input type="text" name="firstName" autocomplete="given-name" required />
-              </label>
-
-              <label class="fw__field">
-                <span>Nom</span>
-                <input type="text" name="lastName" autocomplete="family-name" required />
-              </label>
-
-              <label class="fw__field">
-                <span>Email</span>
-                <input type="email" name="email" autocomplete="email" required />
-              </label>
-
-              <label class="fw__field">
-                <span>Téléphone (optionnel)</span>
-                <input type="tel" name="phone" autocomplete="tel" />
-              </label>
-
-              <label class="fw__check">
-                <input type="checkbox" name="consent" required />
-                <span>J’accepte d’être recontacté(e) par YEIRN au sujet de Free Worship.</span>
-              </label>
-
-              <button class="btn" type="submit" style="width:100%;">Valider mon inscription</button>
-              <p class="fw__note" id="fwMsg" aria-live="polite"></p>
-
-              <p class="fw__small">
-                (Alternative) Tu peux aussi t’inscrire via Google Form :
-                <a href="inscription.html" style="text-decoration:underline; text-underline-offset:3px;">ouvrir le formulaire</a>
-              </p>
-            </form>
-          </div>
-
-          <!-- Options payantes -->
-          <div class="fw__panel fw__panel--ghost">
-            <h3 class="fw__h3">Activités payantes (optionnelles)</h3>
-            <p class="fw__p">
-              L’entrée est gratuite. Certaines activités/ressources peuvent être payantes
-              (selon la session).
-            </p>
-
-            <div class="fw__pricebox">
-              <div class="fw__price">Exemples d’options</div>
-              <div class="fw__muted">Choisis uniquement si tu le souhaites.</div>
-            </div>
-
-            <div class="fw__options">
-              <a class="btn" href="https://buy.stripe.com/test_5kQ5kF7832MkgQQ5jxaR200" target="_blank" rel="noopener" style="width:100%;">
-                Réserver une activité (20€)
-              </a>
-
-              <a class="btn btn--ghost" href="kits.html" style="width:100%; margin-top:10px;">
-                Voir les kits (option payante)
-              </a>
-
-              <a class="btn btn--ghost" href="ateliers.html" style="width:100%; margin-top:10px;">
-                Voir les ateliers (option payante)
-              </a>
-            </div>
-
-            <p class="fw__small">
-              Après paiement Stripe, tu pourras être redirigé(e) vers une page de confirmation.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <footer class="footer reveal">
+      <footer class="footer">
         <div class="container footer__inner">
           <p>© <span id="year"></span> YEIRN</p>
         </div>
@@ -232,6 +121,5 @@
   </div>
 
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/free-worship.js"></script>
 </body>
 </html>

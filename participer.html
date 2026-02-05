@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — Participer</title>
+
+  <link rel="icon" href="assets/img/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="rail" aria-label="Navigation">
+      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+
+      <a class="rail__brand" href="index.html" aria-label="YEIRN">
+        <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
+      </a>
+
+      <nav class="rail__nav" data-drawer>
+        <ul class="rail__menu">
+          <li><a href="index.html">Free Worship</a></li>
+          <li><a href="home.html">YEIRN</a></li>
+          <li><a href="ateliers.html">Ateliers</a></li>
+          <li><a href="kits.html">Kits</a></li>
+          <li><a class="is-active" href="participer.html">Participer</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero__title">PARTICIPER</h1>
+          <p class="hero__lead">
+            Inscription gratuite pour accéder au moment de louange. Options payantes possibles selon la session.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid grid--2 fw__signup">
+
+          <div class="fw__panel">
+            <h3 class="fw__h3">Inscription (gratuit)</h3>
+            <p class="fw__p">
+              Réserve ta place pour le moment de louange. Tu recevras les informations pratiques.
+            </p>
+
+            <form id="freeWorshipForm" class="fw__form">
+              <label class="fw__field">
+                <span>Prénom</span>
+                <input type="text" name="firstName" autocomplete="given-name" required />
+              </label>
+
+              <label class="fw__field">
+                <span>Nom</span>
+                <input type="text" name="lastName" autocomplete="family-name" required />
+              </label>
+
+              <label class="fw__field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+
+              <label class="fw__check">
+                <input type="checkbox" name="consent" required />
+                <span>J’accepte d’être recontacté(e) par YEIRN au sujet de Free Worship.</span>
+              </label>
+
+              <button class="btn" type="submit" style="width:100%;">Valider</button>
+              <p class="fw__note" id="fwMsg" aria-live="polite"></p>
+
+              <p class="fw__small">
+                (Alternative) Google Form :
+                <a href="inscription.html" style="text-decoration:underline; text-underline-offset:3px;">ouvrir le formulaire</a>
+              </p>
+            </form>
+          </div>
+
+          <div id="options" class="fw__panel fw__panel--ghost">
+            <h3 class="fw__h3">Options payantes</h3>
+            <p class="fw__p">Choisis uniquement si tu le souhaites.</p>
+
+            <div class="fw__options">
+              <a class="btn" href="#" style="width:100%;" aria-disabled="true">
+                Moment de louange (gratuit)
+              </a>
+
+              <a class="btn" href="https://buy.stripe.com/test_5kQ5kF7832MkgQQ5jxaR200" target="_blank" rel="noopener" style="width:100%; margin-top:10px;">
+                Activité peinture — 20 €
+              </a>
+
+              <a class="btn btn--ghost" href="kits.html" style="width:100%; margin-top:10px;">
+                Voir les kits
+              </a>
+            </div>
+
+            <p class="fw__small">
+              Paiement sécurisé via Stripe. (En live, tu remplacerás le lien test par le lien live.)
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p>© <span id="year"></span> YEIRN</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/free-worship.js"></script>
+</body>
+</html>
