@@ -577,3 +577,20 @@ img{ display:block; max-width:100%; }
   font-size: 13px;
   line-height: 1.4;
 }
+
+/* ✅ Mobile/desktop: arrondis garantis sur la mosaïque */
+.fwFrame__mosaic img{
+  border-radius: 18px;
+}
+
+/* ✅ Si jamais tes images sont dans un wrapper (recommandé) */
+.fwFrame__mosaic > *{
+  border-radius: 18px;
+  overflow: hidden; /* important pour couper l’image */
+}
+
+/* ✅ Grande image aussi (au cas où) */
+.fwFrame__heroImg{
+  border-radius: 22px;
+  overflow: hidden;
+}
