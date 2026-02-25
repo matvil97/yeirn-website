@@ -612,3 +612,52 @@ img{ display:block; max-width:100%; }
   border-radius: 22px;
   overflow: hidden;
 }
+
+/* =========================
+   FIX MOSAIQUE MOBILE (propre)
+   ========================= */
+
+/* Desktop/tablet */
+.fwFrame__mosaic{
+  gap: 14px !important; /* ✅ enlève le 104px */
+}
+
+.fwFrame__thumb{
+  border-radius: 18px;
+  overflow: hidden;           /* ✅ l’arrondi coupe bien */
+  background: #f2f2f2;
+}
+
+/* image remplit le cadre proprement */
+.fwFrame__thumb img{
+  width: 100%;
+  height: 100%;
+  display:block;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* hauteur cohérente */
+.fwFrame__thumb{
+  height: 210px;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  /* 2 images côte à côte */
+  .fwFrame__mosaic{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 12px !important;
+  }
+
+  .fwFrame__thumb{
+    height: 180px;          /* ✅ pas trop haut, pas trop petit */
+  }
+
+  /* photo principale : pas gigantesque */
+  .fwFrame__heroImg{
+    min-height: 320px !important;
+  }
+}
