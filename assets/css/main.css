@@ -568,19 +568,15 @@ body{
 }
 .fwFrame__mosaic{
   display:grid;
-  grid-template-rows: auto auto 1fr 1fr;
-  gap: 10px;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 14px;
 }
+
 .fwFrame__mosaic img{
   width:100%;
-  height: 110px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px;
-}
-.fwFrame__mosaicPh{
-  background: #d7d7d7;
-  border-radius: 10px;
-  min-height: 110px;
+  border-radius: 14px;
 }
 .fwFrame__heroImg{
   border-radius: var(--radius);
@@ -641,4 +637,29 @@ body{
     grid-template-columns: 1fr;
   }
   .fwFrame__heroImg{ min-height: 360px; }
+}
+/* Choix formule Free Worship */
+.fwChoice{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  cursor:pointer;
+}
+
+.fwChoice input{
+  margin-top: 4px;
+}
+
+.fwChoice__box{
+  display:block;
+  width:100%;
+  border:1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.fwChoice__muted{
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
 }

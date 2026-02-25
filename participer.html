@@ -42,7 +42,7 @@
         <div class="container">
           <h1 class="hero__title">PARTICIPER</h1>
           <p class="hero__lead">
-            Inscription gratuite pour accéder au moment de louange. Options payantes possibles selon la session.
+            L’accès au moment de louange est gratuit (sur inscription). Une option “activité peinture” est disponible.
           </p>
         </div>
       </section>
@@ -50,10 +50,11 @@
       <section class="section">
         <div class="container grid grid--2 fw__signup">
 
+          <!-- FORMULAIRE -->
           <div class="fw__panel">
-            <h3 class="fw__h3">Inscription (gratuit)</h3>
+            <h3 class="fw__h3">Inscription</h3>
             <p class="fw__p">
-              Réserve ta place pour le moment de louange. Tu recevras les informations pratiques.
+              Remplis tes informations puis choisis ta formule.
             </p>
 
             <form id="freeWorshipForm" class="fw__form">
@@ -72,12 +73,20 @@
                 <input type="email" name="email" autocomplete="email" required />
               </label>
 
+              <label class="fw__field">
+                <span>Téléphone</span>
+                <input type="tel" name="phone" autocomplete="tel" required />
+              </label>
+
+              <!-- ✅ Champ caché (dans le form) -->
+              <input type="hidden" name="formula" id="formula" value="Moment de louange simple (gratuit)" />
+
               <label class="fw__check">
                 <input type="checkbox" name="consent" required />
                 <span>J’accepte d’être recontacté(e) par YEIRN au sujet de Free Worship.</span>
               </label>
 
-              <button class="btn" type="submit" style="width:100%;">Valider</button>
+              <button class="btn" type="submit" style="width:100%;">Valider mon inscription</button>
               <p class="fw__note" id="fwMsg" aria-live="polite"></p>
 
               <p class="fw__small">
@@ -87,26 +96,45 @@
             </form>
           </div>
 
+          <!-- CHOIX FORMULE -->
           <div id="options" class="fw__panel fw__panel--ghost">
-            <h3 class="fw__h3">Options payantes</h3>
-            <p class="fw__p">Choisis uniquement si tu le souhaites.</p>
+            <h3 class="fw__h3">Choisir une formule</h3>
+            <p class="fw__p">Sélectionne le format qui te correspond :</p>
 
-            <div class="fw__options">
-              <a class="btn" href="#" style="width:100%;" aria-disabled="true">
-                Moment de louange (gratuit)
+            <div class="fw__options" style="display:flex; flex-direction:column; gap:10px;">
+
+              <label class="fwChoice">
+                <input type="radio" name="fwChoice" value="free" checked />
+                <span class="fwChoice__box">
+                  <strong>Moment de louange simple</strong><br>
+                  <span class="fwChoice__muted">Gratuit, sur inscription</span>
+                </span>
+              </label>
+
+              <label class="fwChoice">
+                <input type="radio" name="fwChoice" value="paint" />
+                <span class="fwChoice__box">
+                  <strong>Moment de louange + activité peinture</strong><br>
+                  <span class="fwChoice__muted">20€ (paiement Stripe)</span>
+                </span>
+              </label>
+
+              <!-- Bouton Stripe (affiché seulement si "paint") -->
+              <a
+                id="stripePaintBtn"
+                class="btn"
+                href="https://buy.stripe.com/test_5kQ5kF7832MkgQQ5jxaR200"
+                target="_blank"
+                rel="noopener"
+                style="width:100%; display:none;"
+              >
+                Payer l’activité peinture (20€)
               </a>
 
-              <a class="btn" href="https://buy.stripe.com/test_5kQ5kF7832MkgQQ5jxaR200" target="_blank" rel="noopener" style="width:100%; margin-top:10px;">
-                Activité peinture — 20 €
-              </a>
-
-              <a class="btn btn--ghost" href="kits.html" style="width:100%; margin-top:10px;">
-                Voir les kits
-              </a>
             </div>
 
-            <p class="fw__small">
-              Paiement sécurisé via Stripe. (En live, tu remplacerás le lien test par le lien live.)
+            <p class="fw__small" style="margin-top:10px;">
+              La louange est gratuite sur inscription. L’activité peinture nécessite un paiement via Stripe.
             </p>
           </div>
 
@@ -123,5 +151,32 @@
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/free-worship.js"></script>
+
+  <!-- ✅ petit script local pour synchroniser le choix -->
+  <script>
+    (function(){
+      const formulaInput = document.getElementById("formula");
+      const stripeBtn = document.getElementById("stripePaintBtn");
+      const radios = document.querySelectorAll('input[name="fwChoice"]');
+
+      function sync(){
+        const selected = document.querySelector('input[name="fwChoice"]:checked')?.value || "free";
+        const isPaint = selected === "paint";
+
+        if (formulaInput) {
+          formulaInput.value = isPaint
+            ? "Moment de louange + activité peinture (20€)"
+            : "Moment de louange simple (gratuit)";
+        }
+
+        if (stripeBtn) {
+          stripeBtn.style.display = isPaint ? "inline-flex" : "none";
+        }
+      }
+
+      radios.forEach(r => r.addEventListener("change", sync));
+      sync();
+    })();
+  </script>
 </body>
 </html>

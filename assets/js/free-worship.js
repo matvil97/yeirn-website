@@ -42,6 +42,10 @@ if (form) {
       setMsg("Merci d’accepter le consentement.");
       return;
     }
+    if (!phone) {
+  setMsg("Merci de renseigner ton numéro de téléphone.");
+  return;
+    }
 
     saveLocalSignup({ firstName, lastName, email, phone });
 
