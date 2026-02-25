@@ -329,18 +329,23 @@ img{ display:block; max-width:100%; }
   align-items: stretch;
 }
 
+/* ===== MOSAIQUE IMAGES ===== */
+
 .fwFrame__mosaic{
   display:grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 18px; /* ✅ plus de gros trou */
+  grid-template-rows: repeat(2, auto);
+  gap: 104px; /* ← corrige ton ancien gap: 104px (trop grand) */
 }
 
+/* Wrapper propre */
 .fwFrame__mosaic img{
   width:100%;
-  height:100%;
+  height:auto;              /* ← IMPORTANT */
+  aspect-ratio: 4 / 5;      /* ratio vertical stable */
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: center;  /* centre exact */
   border-radius: 18px;
+  display:block;
 }
 
 .fwFrame__heroImg{
@@ -554,7 +559,20 @@ img{ display:block; max-width:100%; }
     transition: none;
   }
 }
+@media (max-width: 640px){
 
+  .fwFrame__mosaic{
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .fwFrame__mosaic img{
+    aspect-ratio: 3 / 4;   /* un peu moins coupé sur mobile */
+    object-fit: contain;   /* ← VOIR IMAGE EN ENTIER */
+    background:#f3f3f3;    /* si espace autour */
+  }
+
+}
 /* =========================
    Choix formule Free Worship
    ========================= */
