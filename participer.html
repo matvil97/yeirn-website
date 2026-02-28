@@ -77,6 +77,57 @@
                 <span>Téléphone</span>
                 <input type="tel" name="phone" autocomplete="tel" required />
               </label>
+            
+                <hr class="fw__divider" />
+
+<h3 class="fw__h3">Pochette Biblique (optionnel)</h3>
+<p class="fw__p">Choisis un modèle et une taille. Tu peux aussi renseigner des dimensions exactes.</p>
+
+<label class="fw__check">
+  <input type="checkbox" id="wantPouch" name="wantPouch" />
+  <span>Je souhaite ajouter une pochette de Bible</span>
+</label>
+
+<div id="pouchFields" style="display:none; margin-top:10px;">
+  <label class="fw__field">
+    <span>Modèle / Couleur</span>
+    <select name="pouchModel" id="pouchModel" class="fw__select">
+      <option value="">— Choisir —</option>
+      <option value="Pochette 1 (rose)">Pochette 1 (rose)</option>
+      <option value="Pochette 2 (verte)">Pochette 2 (verte)</option>
+      <option value="Pochette 3 (bleu marine)">Pochette 3 (bleu marine)</option>
+    </select>
+  </label>
+
+  <label class="fw__field">
+    <span>Taille (standard)</span>
+    <select name="pouchSize" id="pouchSize" class="fw__select">
+      <option value="">— Choisir —</option>
+      <option value="S">S (petite Bible)</option>
+      <option value="M">M (standard)</option>
+      <option value="L">L (grande Bible)</option>
+    </select>
+  </label>
+
+  <p class="fw__small" style="margin-top:6px;">Ou renseigne des dimensions exactes (en cm) :</p>
+
+  <div class="fw__dims">
+    <label class="fw__field">
+      <span>Longueur</span>
+      <input type="number" step="0.1" name="pouchLength" placeholder="ex: 22.5" />
+    </label>
+
+    <label class="fw__field">
+      <span>Largeur</span>
+      <input type="number" step="0.1" name="pouchWidth" placeholder="ex: 15.0" />
+    </label>
+
+    <label class="fw__field">
+      <span>Épaisseur</span>
+      <input type="number" step="0.1" name="pouchDepth" placeholder="ex: 4.0" />
+    </label>
+  </div>
+</div>
 
               <!-- ✅ Champ caché (dans le form) -->
               <input type="hidden" name="formula" id="formula" value="Moment de louange simple (gratuit)" />

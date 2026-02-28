@@ -1,23 +1,36 @@
 // assets/js/free-worship.js
 // Envoie le formulaire vers Google Sheets via Google Apps Script (sans SGBD)
 
-// ✅ URL /exec de ton Apps Script
 const ENDPOINT =
   "https://script.google.com/macros/s/AKfycbwnKXkWpVEj89FssU3kLGxTQ88ceid2q_EKmpsEvZkUhwVPJJ_tuScV-qPTS187b6UIXA/exec";
 
 const form = document.getElementById("freeWorshipForm");
 const msg = document.getElementById("fwMsg");
+const wantPouch = document.getElementById("wantPouch");
+const pouchFields = document.getElementById("pouchFields");
 
 function setMsg(t) {
   if (!msg) return;
   msg.textContent = t || "";
 }
 
-// ✅ Envoi en x-www-form-urlencoded (évite CORS/preflight, fonctionne avec e.parameter)
+/* =========================
+   Toggle pochette
+========================= */
+if (wantPouch && pouchFields) {
+  const toggle = () => {
+    pouchFields.style.display = wantPouch.checked ? "block" : "none";
+  };
+  wantPouch.addEventListener("change", toggle);
+  toggle();
+}
+
+/* =========================
+   Envoi vers Apps Script
+========================= */
 async function postSignup(payload) {
   const body = new URLSearchParams();
 
-  // Convertit tout en string (Apps Script reçoit e.parameter)
   Object.entries(payload).forEach(([k, v]) => {
     body.append(k, String(v ?? ""));
   });
@@ -30,13 +43,12 @@ async function postSignup(payload) {
     body: body.toString(),
   });
 
-  // Apps Script renvoie un JSON en texte
   const text = await res.text();
   let data = {};
+
   try {
     data = JSON.parse(text);
   } catch {
-    // Si Apps Script renvoie autre chose
     throw new Error("Réponse invalide du serveur.");
   }
 
@@ -47,6 +59,9 @@ async function postSignup(payload) {
   return data;
 }
 
+/* =========================
+   Submit
+========================= */
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -54,7 +69,14 @@ if (form) {
 
     const fd = new FormData(form);
 
-    // ⚠️ Apps Script e.parameter reçoit tout en string
+    const wantPouchValue = fd.get("wantPouch") ? "yes" : "no";
+
+    const pouchModel = String(fd.get("pouchModel") || "").trim();
+    const pouchSize = String(fd.get("pouchSize") || "").trim();
+    const pouchLength = String(fd.get("pouchLength") || "").trim();
+    const pouchWidth = String(fd.get("pouchWidth") || "").trim();
+    const pouchDepth = String(fd.get("pouchDepth") || "").trim();
+
     const payload = {
       firstName: String(fd.get("firstName") || "").trim(),
       lastName: String(fd.get("lastName") || "").trim(),
@@ -63,24 +85,51 @@ if (form) {
       formula: String(fd.get("formula") || "Moment de louange simple (gratuit)").trim(),
       consent: fd.get("consent") ? "yes" : "no",
       source: "website",
+
+      // Pochette
+      wantPouch: wantPouchValue,
+      pouchModel: pouchModel,
+      pouchSize: pouchSize,
+      pouchLength: pouchLength,
+      pouchWidth: pouchWidth,
+      pouchDepth: pouchDepth,
     };
+
+    /* =========================
+       VALIDATIONS
+    ========================= */
 
     if (!payload.email) return setMsg("Merci de renseigner un email.");
     if (!payload.phone) return setMsg("Merci de renseigner un téléphone.");
-    if (payload.consent !== "yes") return setMsg("Merci d’accepter le consentement.");
+    if (payload.consent !== "yes")
+      return setMsg("Merci d’accepter le consentement.");
 
+    // Validation pochette si activée
+    if (wantPouchValue === "yes") {
+      if (!pouchModel) {
+        return setMsg("Merci de choisir un modèle de pochette.");
+      }
+
+      const hasCustomDimensions =
+        pouchLength || pouchWidth || pouchDepth;
+
+      if (!pouchSize && !hasCustomDimensions) {
+        return setMsg(
+          "Merci de choisir une taille standard ou renseigner les dimensions."
+        );
+      }
+    }
+
+    /* =========================
+       ENVOI
+    ========================= */
     try {
       setMsg("Envoi en cours…");
 
       await postSignup(payload);
 
       form.reset();
-
-      // ✅ Remettre la formule par défaut si champ hidden
-      const formulaInput = document.getElementById("formula");
-      if (formulaInput) {
-        formulaInput.value = "Moment de louange simple (gratuit)";
-      }
+      if (pouchFields) pouchFields.style.display = "none";
 
       setMsg("Inscription enregistrée ✅ (dans la liste Dalhia)");
     } catch (err) {
