@@ -1,6 +1,6 @@
 // assets/js/free-worship.js
 // Envoie le formulaire vers Google Sheets via Google Apps Script (sans SGBD)
-
+const REGISTRATION_CLOSED = true;
 const ENDPOINT =
   "https://script.google.com/macros/s/AKfycbwnKXkWpVEj89FssU3kLGxTQ88ceid2q_EKmpsEvZkUhwVPJJ_tuScV-qPTS187b6UIXA/exec";
 
@@ -62,6 +62,11 @@ async function postSignup(payload) {
 /* =========================
    Submit
 ========================= */
+if (REGISTRATION_CLOSED) {
+  e.preventDefault();
+  setMsg("Les inscriptions sont closes.");
+  return;
+}
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
