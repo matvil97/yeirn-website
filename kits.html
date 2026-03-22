@@ -3,28 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YEIRN — Kits</title>
+  <title>YEIRN — Kits créatifs</title>
+  <meta
+    name="description"
+    content="Découvrez les kits créatifs YEIRN : des supports sensibles pour prolonger l’expérience de création et d’ancrage."
+  />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="apple-touch-icon" href="assets/img/logo.png">
-
+  <link rel="icon" href="assets/img/logo.png" type="image/png" />
 </head>
 <body>
   <div class="layout">
-    <aside class="rail" aria-label="Navigation">
+    <aside class="rail" aria-label="Navigation principale">
       <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
         <span></span><span></span><span></span>
       </button>
 
-      <a class="rail__brand" href="index.html" aria-label="YEIRN">
-        <img class="rail__logo" src="./assets/img/logo.png" alt="Logo YEIRN" />
+      <a class="rail__brand" href="index.html" aria-label="Retour à l'accueil YEIRN">
+        <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
       </a>
 
       <nav class="rail__nav" data-drawer>
         <ul class="rail__menu">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="ateliers.html">Ateliers</a></li>
-          <li><a class="is-active" href="kits.html">Kits</a></li>
-          <li><a href="inscription.html">Inscription</a></li>
+          <li><a class="is-active" href="kits.html" aria-current="page">Kits</a></li>
+          <li><a href="flow-worship.html">Flow Worship</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </aside>
@@ -32,52 +37,89 @@
     <main class="main">
       <section class="hero">
         <div class="container">
-          <h1 class="hero__title">NOS KITS CRÉATIFS</h1>
+          <p class="card__kicker">CRÉATIONS YEIRN</p>
+          <h1 class="hero__title">KITS CRÉATIFS</h1>
           <p class="hero__lead">
-            Des pochettes prêtes à l’emploi : Bible, stylo et bloc-notes — pour créer où tu veux.
+            Des supports pensés pour prolonger un temps d’écoute, de création et d’ancrage au-delà de l’atelier.
+          </p>
+          <div class="hero__cta">
+            <a class="btn" href="contact.html">Commander / demander un renseignement</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <p class="hero__lead" style="margin-top:0;">
+            Les kits YEIRN sont conçus comme des prolongements sensibles de l’expérience vécue :
+            pour accompagner une méditation, soutenir l’expression personnelle ou offrir un support créatif à quelqu’un.
           </p>
         </div>
       </section>
 
       <section class="section">
         <div class="container section__head">
-          <h2 class="section__title">KITS</h2>
-          <a class="section__link" href="inscription.html">Être informé</a>
+          <h2 class="section__title">LES KITS</h2>
+          <span class="section__link">Sélection</span>
         </div>
 
         <div class="container grid grid--3">
-          <a class="card" href="produit.html">
-            <div class="card__media card__media--alt">
-              <img src="./assets/img/Kbible1.png" alt="Kit ECHO — HOME" loading="lazy">
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/img/poch1.png" alt="Kit créatif 1" loading="lazy" />
             </div>
             <div class="card__body">
-              <div class="card__kicker">KIT</div>
-              <div class="card__title">BIBLE MARRON + STYLO & CARNET</div>
-              <div class="card__meta">À partir de 29€</div>
+              <div class="card__kicker">KIT 1</div>
+              <h3 class="card__title">Nom du kit</h3>
+              <div class="card__meta">À préciser</div>
+              <p class="card__desc">
+                Une courte description du kit, de son contenu et de ce qu’il permet de vivre.
+              </p>
             </div>
-          </a>
+          </article>
 
-          <a class="card" href="produit.html">
-            <div class="card__media card__media--alt">
-              <img src="./assets/img/Kbible2.png" alt="Kit ANCHOR — HOME" loading="lazy">
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/img/poch2.png" alt="Kit créatif 2" loading="lazy" />
             </div>
             <div class="card__body">
-              <div class="card__kicker">KIT</div>
-              <div class="card__title">BIBLE BLEU VERT + STYLO & CARNET</div>
-              <div class="card__meta">À partir de 29€</div>
+              <div class="card__kicker">KIT 2</div>
+              <h3 class="card__title">Nom du kit</h3>
+              <div class="card__meta">À préciser</div>
+              <p class="card__desc">
+                Une courte description du kit, de son contenu et de la manière dont il s’inscrit dans l’univers YEIRN.
+              </p>
             </div>
-          </a>
+          </article>
 
-          <a class="card" href="produit.html">
-            <div class="card__media card__media--alt">
-              <img src="./assets/img/Kbible3.png" alt="Kit FLOW — HOME" loading="lazy">
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/img/poch3.png" alt="Kit créatif 3" loading="lazy" />
             </div>
             <div class="card__body">
-              <div class="card__kicker">KIT</div>
-              <div class="card__title">BIBLE ROSE + STYLO & CARNET</div>
-              <div class="card__meta">À partir de 29€</div>
+              <div class="card__kicker">KIT 3</div>
+              <h3 class="card__title">Nom du kit</h3>
+              <div class="card__meta">À préciser</div>
+              <p class="card__desc">
+                Une courte description du kit pour aider la personne à comprendre à qui il s’adresse.
+              </p>
             </div>
-          </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <article class="card" style="text-align:center;">
+            <div class="card__body">
+              <div class="card__kicker">COMMANDE & RENSEIGNEMENTS</div>
+              <h2 class="card__title">Un kit t’intéresse ?</h2>
+              <p class="card__desc">
+                Tu peux nous écrire pour obtenir plus d’informations, demander un devis ou réserver un kit.
+              </p>
+              <a class="btn" href="contact.html">Contacter YEIRN</a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -90,5 +132,6 @@
   </div>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/chatbot.js"></script>
 </body>
 </html>

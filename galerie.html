@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — Galerie</title>
+  <meta
+    name="description"
+    content="Découvrez la galerie YEIRN et les œuvres partagées par la communauté."
+  />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail" aria-label="Navigation principale">
+      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+
+      <a class="rail__brand" href="index.html" aria-label="Retour à l'accueil YEIRN">
+        <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
+      </a>
+
+      <nav class="rail__nav" data-drawer>
+        <ul class="rail__menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="ateliers.html">Ateliers</a></li>
+          <li><a href="kits.html">Kits</a></li>
+          <li><a class="is-active" href="galerie.html" aria-current="page">Galerie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="container">
+          <p class="card__kicker">GALERIE YEIRN</p>
+          <h1 class="hero__title">Œuvres & communauté</h1>
+          <p class="hero__lead">
+            Un espace pour découvrir les œuvres partagées et validées par YEIRN.
+          </p>
+          <div class="hero__cta">
+            <a class="btn" href="proposer-oeuvre.html">Proposer une œuvre</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container section__head">
+          <h2 class="section__title">GALERIE</h2>
+          <span class="section__link">Sélection validée</span>
+        </div>
+
+        <div class="container grid grid--3">
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/img/poch1.png" alt="Œuvre exemple 1" loading="lazy" />
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">PEINTURE</div>
+              <h3 class="card__title">Titre de l’œuvre</h3>
+              <div class="card__meta">Par Nom de l’artiste</div>
+              <p class="card__desc">Description courte de l’œuvre publiée dans la galerie.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/img/poch2.png" alt="Œuvre exemple 2" loading="lazy" />
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">DESSIN</div>
+              <h3 class="card__title">Titre de l’œuvre</h3>
+              <div class="card__meta">Par Nom de l’artiste</div>
+              <p class="card__desc">Description courte de l’œuvre publiée dans la galerie.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media">
+              <img src="assets/img/poch3.png" alt="Œuvre exemple 3" loading="lazy" />
+            </div>
+            <div class="card__body">
+              <div class="card__kicker">PHOTO</div>
+              <h3 class="card__title">Titre de l’œuvre</h3>
+              <div class="card__meta">Par Nom de l’artiste</div>
+              <p class="card__desc">Description courte de l’œuvre publiée dans la galerie.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container footer__inner">
+          <p>© <span id="year"></span> YEIRN</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/chatbot.js"></script>
+</body>
+</html>

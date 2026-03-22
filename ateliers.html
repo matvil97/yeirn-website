@@ -3,28 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YEIRN — Ateliers</title>
+  <title>YEIRN — Ateliers de louange créative</title>
+  <meta
+    name="description"
+    content="Participez aux ateliers YEIRN des 17 et 18 avril : un temps de parole, de création, d’écoute et d’ancrage."
+  />
   <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="apple-touch-icon" href="assets/img/logo.png">
-
+  <link rel="apple-touch-icon" href="assets/img/logo.png" />
 </head>
 <body>
   <div class="layout">
-    <aside class="rail" aria-label="Navigation">
-      <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
+    <aside class="rail" aria-label="Navigation principale">
+      <button
+        class="rail__burger"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        data-burger
+      >
         <span></span><span></span><span></span>
       </button>
 
-      <a class="rail__brand" href="index.html" aria-label="YEIRN">
-        <img class="rail__logo" src="./assets/img/logo.png" alt="Logo YEIRN" />
+      <a class="rail__brand" href="index.html" aria-label="Retour à l'accueil YEIRN">
+        <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
       </a>
 
       <nav class="rail__nav" data-drawer>
         <ul class="rail__menu">
           <li><a href="index.html">Accueil</a></li>
-          <li><a class="is-active" href="ateliers.html">Ateliers</a></li>
+          <li><a class="is-active" href="ateliers.html" aria-current="page">Ateliers</a></li>
           <li><a href="kits.html">Kits</a></li>
-          <li><a href="inscription.html">Inscription</a></li>
+          <li><a href="participer.html">Inscription</a></li>
         </ul>
       </nav>
     </aside>
@@ -33,84 +42,204 @@
       <!-- HERO -->
       <section class="hero">
         <div class="container">
-          <h1 class="hero__title">NOS ATELIERS</h1>
+          <p class="card__kicker">ATELIER YEIRN • 17 & 18 AVRIL</p>
+          <h1 class="hero__title">ATELIER DE LOUANGE CRÉATIVE</h1>
           <p class="hero__lead">
-            Des ateliers guidés par la parole, pensés pour créer, partager et s’ancrer.
+            Un temps pour créer, écouter, écrire et s’ancrer à travers la parole.
+            Deux dates pour vivre une expérience sensible, guidée et profonde.
           </p>
+
           <div class="hero__cta">
-            <a class="btn" href="kits.html">Découvrir les kits</a>
-            <a class="btn btn--ghost" href="inscription.html">S’inscrire</a>
+            <a class="btn" href="participer.html">Je m’inscris</a>
+            <a class="btn btn--ghost" href="#atelier-avril">Voir le programme</a>
           </div>
         </div>
       </section>
 
-      <!-- TEXTE INTRO -->
+      <!-- INTRO -->
       <section class="section" style="padding-top: 0;">
         <div class="container">
-          <p class="hero__lead" style="margin-top:0;">
-            Les ateliers YEIRN sont des espaces de pause et d’expression. Chaque thème s’appuie
-            sur la parole pour ouvrir un temps d’écoute, d’écriture et de création. Les visuels
-            et supports accompagnent le cheminement, pour ancrer ce qui émerge et permettre
-            une mise en mouvement personnelle.
+          <p class="hero__lead" style="margin-top: 0;">
+            Les ateliers YEIRN sont pensés comme des espaces de pause, d’expression
+            et de transformation. Chaque rencontre s’appuie sur la parole, l’écoute,
+            l’écriture et la création pour permettre à chacun de cheminer à son rythme.
           </p>
         </div>
       </section>
 
-      <!-- LISTING -->
-      <section class="section">
+      <!-- ATELIER PRINCIPAL -->
+      <section id="atelier-avril" class="section" aria-labelledby="atelier-principal">
         <div class="container section__head">
-          <h2 class="section__title">ATELIERS</h2>
-          <span class="section__link">3 formats</span>
+          <h2 id="atelier-principal" class="section__title">ATELIER DU 17 & 18 AVRIL</h2>
+          <span class="section__link">Places limitées</span>
+        </div>
+
+        <div class="container grid grid--2" style="align-items: start;">
+          <article class="card">
+            <div class="card__media">
+              <img
+                src="assets/img/poch1.png"
+                alt="Visuel de l'atelier de louange créative YEIRN"
+                loading="lazy"
+              />
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">EXPÉRIENCE GUIDÉE</div>
+              <h3 class="card__title">Créer, écouter, s’ancrer</h3>
+              <p class="card__desc">
+                Cet atelier propose un cadre bienveillant pour prendre un temps à part,
+                accueillir ce qui est là, et laisser émerger une expression personnelle
+                à travers des temps guidés de parole, d’écriture et de création.
+              </p>
+
+              <div class="card__meta" style="margin-bottom: 1rem;">
+                📅 17 et 18 avril
+              </div>
+              <div class="card__meta" style="margin-bottom: 1rem;">
+                📍 Lieu : à préciser
+              </div>
+              <div class="card__meta" style="margin-bottom: 1rem;">
+                ⏰ Horaire : à préciser
+              </div>
+              <div class="card__meta" style="margin-bottom: 1rem;">
+                💶 Tarif : à préciser
+              </div>
+              <div class="card__meta" style="margin-bottom: 1.5rem;">
+                🎨 Matériel : à préciser / fourni si besoin
+              </div>
+
+              <a class="btn" href="participer.html">Réserver ma place</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CE QUE L'ON VIT -->
+      <section class="section" aria-labelledby="atelier-contenu">
+        <div class="container section__head">
+          <h2 id="atelier-contenu" class="section__title">CE QUE TU VAS VIVRE</h2>
+          <span class="section__link">Une expérience en plusieurs temps</span>
         </div>
 
         <div class="container grid grid--3">
-          <!-- ECHO -->
-          <a class="card" href="produit.html">
-            <div class="card__media">
-              <img src="./assets/img/poch1.png" alt="Atelier ECHO" loading="lazy">
-            </div>
+          <article class="card">
             <div class="card__body">
-              <div class="card__kicker">ATELIER THÉMATIQUE</div>
-              <div class="card__title">ATELIER 1</div>
-              <div class="card__meta">Parole • Écoute • Création</div>
+              <div class="card__kicker">1. ÉCOUTE</div>
+              <h3 class="card__title">Un temps pour ralentir</h3>
               <p class="card__desc">
-                Un atelier centré sur l’écoute intérieure et la résonance de la parole.
-                Les supports visuels accompagnent l’écriture pour laisser émerger l’essentiel.
+                Entrer dans une atmosphère propice à l’écoute de soi, de la parole et
+                de ce qui cherche à émerger intérieurement.
               </p>
             </div>
-          </a>
+          </article>
 
-          <!-- ANCHOR -->
-          <a class="card" href="produit.html">
-            <div class="card__media">
-              <img src="./assets/img/poch2.png" alt="Atelier ANCHOR" loading="lazy">
-            </div>
+          <article class="card">
             <div class="card__body">
-              <div class="card__kicker">ATELIER GUIDÉ PAR LA PAROLE</div>
-              <div class="card__title">ATELIER 2</div>
-              <div class="card__meta">Ancrage • Récit • Partage</div>
+              <div class="card__kicker">2. EXPRESSION</div>
+              <h3 class="card__title">Écrire et créer</h3>
               <p class="card__desc">
-                Un temps d’ancrage autour du récit personnel. L’image et l’écriture
-                deviennent des points d’appui pour structurer, relire et partager.
+                Mettre en forme ce qui se dépose à travers l’écriture, les supports visuels
+                et une création accessible, même sans niveau artistique particulier.
               </p>
             </div>
-          </a>
+          </article>
 
-          <!-- FLOW -->
-          <a class="card" href="produit.html">
-            <div class="card__media">
-              <img src="./assets/img/poch3.png" alt="Atelier FLOW" loading="lazy">
-            </div>
+          <article class="card">
             <div class="card__body">
-              <div class="card__kicker">ATELIER LIBRE</div>
-              <div class="card__title">ATELIER 3</div>
-              <div class="card__meta">Écriture • Mouvement • Expression</div>
+              <div class="card__kicker">3. ANCRAGE</div>
+              <h3 class="card__title">Repartir avec une trace</h3>
               <p class="card__desc">
-                Un atelier plus libre où la parole circule par le geste, l’écriture et l’expression.
-                Les supports visuels ouvrent un espace fluide et spontané.
+                Garder une empreinte concrète du temps vécu, pour prolonger le mouvement
+                intérieur au-delà de l’atelier.
               </p>
             </div>
-          </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- POUR QUI -->
+      <section class="section" aria-labelledby="atelier-public">
+        <div class="container section__head">
+          <h2 id="atelier-public" class="section__title">POUR QUI ?</h2>
+          <span class="section__link">Accessible à tous</span>
+        </div>
+
+        <div class="container">
+          <article class="card">
+            <div class="card__body">
+              <p class="card__desc">
+                Cet atelier s’adresse aux personnes qui souhaitent vivre un moment de pause,
+                de recentrage et de créativité. Aucun niveau artistique particulier n’est requis.
+                Tu peux venir comme tu es, avec ton envie de découvrir, d’explorer ou simplement
+                de prendre un temps pour toi.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" aria-labelledby="faq-atelier">
+        <div class="container section__head">
+          <h2 id="faq-atelier" class="section__title">QUESTIONS FRÉQUENTES</h2>
+          <span class="section__link">Infos utiles</span>
+        </div>
+
+        <div class="container grid grid--2">
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Faut-il savoir dessiner ou peindre ?</h3>
+              <p class="card__desc">
+                Non. L’atelier est accessible même si tu n’as aucune pratique artistique.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Le matériel est-il fourni ?</h3>
+              <p class="card__desc">
+                Tu peux préciser ici si le matériel est inclus ou s’il faut apporter certains éléments.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Peut-on venir seul(e) ?</h3>
+              <p class="card__desc">
+                Oui, bien sûr. L’atelier est pensé pour accueillir chacun dans un cadre simple et bienveillant.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__title">Comment s’inscrire ?</h3>
+              <p class="card__desc">
+                Il suffit de remplir le formulaire d’inscription sur la page dédiée.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section">
+        <div class="container">
+          <article class="card" style="text-align: center;">
+            <div class="card__body">
+              <div class="card__kicker">PRÊT(E) À PARTICIPER ?</div>
+              <h2 class="card__title">Réserve ta place pour l’atelier du 17 ou 18 avril</h2>
+              <p class="card__desc">
+                Les inscriptions se font en ligne. Tu recevras ensuite les informations pratiques.
+              </p>
+              <a class="btn" href="participer.html">Je m’inscris maintenant</a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -123,5 +252,6 @@
   </div>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/chatbot.js"></script>
 </body>
 </html>

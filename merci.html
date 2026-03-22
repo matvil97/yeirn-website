@@ -5,25 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YEIRN — Merci</title>
   <link rel="stylesheet" href="assets/css/main.css" />
+
   <style>
-    .thanks{
+    .thanks {
       padding: 60px 0 40px;
     }
-    .thanks__box{
+
+    .thanks__box {
       width: min(var(--container), calc(100% - 64px));
-      margin-inline:auto;
+      margin-inline: auto;
       border-radius: var(--radius);
       background: #fff;
       border: 1px solid var(--line);
-      padding: 18px;
+      padding: 22px;
     }
-    .thanks__title{
-      margin:0 0 10px;
-      font-size: 22px;
+
+    .thanks__eyebrow {
+      display: inline-block;
+      margin: 0 0 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f6f7fb;
+      border: 1px solid var(--line);
+      font-size: 12px;
       letter-spacing: .06em;
       text-transform: uppercase;
+      color: var(--muted);
     }
-    .thanks__p{ color: var(--muted); line-height: 1.7; margin:0 0 14px; }
+
+    .thanks__title {
+      margin: 0 0 12px;
+      font-size: 24px;
+      letter-spacing: .02em;
+      line-height: 1.2;
+    }
+
+    .thanks__p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 14px;
+    }
+
+    .thanks__actions {
+      margin-top: 14px;
+    }
   </style>
 </head>
 <body>
@@ -42,7 +67,9 @@
           <li><a href="index.html">Accueil</a></li>
           <li><a href="ateliers.html">Ateliers</a></li>
           <li><a href="kits.html">Kits</a></li>
-          <li><a href="inscription.html">Inscription</a></li>
+          <li><a href="participer.html">Inscription</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
         </ul>
       </nav>
     </aside>
@@ -50,18 +77,20 @@
     <main class="main">
       <section class="thanks">
         <div class="thanks__box">
-          <h1 class="thanks__title">Merci !</h1>
-          <p class="thanks__p">
-            Ton inscription à <strong>Free Worship</strong> est confirmée.
-            Si un paiement était requis, il a bien été pris en compte.
-          </p>
-          <p class="thanks__p">
-            Tu recevras un email avec les informations pratiques (date, lieu, horaires).
+          <p class="thanks__eyebrow" id="thanksEyebrow">Confirmation</p>
+          <h1 class="thanks__title" id="thanksTitle">Merci !</h1>
+
+          <p class="thanks__p" id="thanksText1">
+            Ton inscription à l’<strong>atelier YEIRN</strong> a bien été prise en compte.
           </p>
 
-          <div class="hero__cta" style="margin-top: 10px;">
-            <a class="btn" href="free-worship.html">Retour à l’événement</a>
-            <a class="btn btn--ghost" href="index.html">Retour accueil</a>
+          <p class="thanks__p" id="thanksText2">
+            Nous avons hâte de te retrouver pour ce temps de création, d’écoute et d’ancrage.
+          </p>
+
+          <div class="hero__cta thanks__actions">
+            <a class="btn" id="primaryBtn" href="ateliers.html">Retour aux ateliers</a>
+            <a class="btn btn--ghost" id="secondaryBtn" href="index.html">Retour à l’accueil</a>
           </div>
         </div>
       </section>
@@ -75,5 +104,51 @@
   </div>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const type = (params.get("type") || "atelier").toLowerCase();
+
+      const eyebrow = document.getElementById("thanksEyebrow");
+      const title = document.getElementById("thanksTitle");
+      const text1 = document.getElementById("thanksText1");
+      const text2 = document.getElementById("thanksText2");
+      const primaryBtn = document.getElementById("primaryBtn");
+      const secondaryBtn = document.getElementById("secondaryBtn");
+
+      if (type === "contact") {
+        eyebrow.textContent = "Message envoyé";
+        title.textContent = "Merci pour ton message";
+        text1.innerHTML = "Ta demande a bien été envoyée à <strong>YEIRN</strong>.";
+        text2.textContent = "Nous reviendrons vers toi dès que possible avec une réponse adaptée à ta demande.";
+        primaryBtn.textContent = "Retour au contact";
+        primaryBtn.href = "contact.html";
+        secondaryBtn.textContent = "Retour à l’accueil";
+        secondaryBtn.href = "index.html";
+        return;
+      }
+
+      if (type === "gallery") {
+        eyebrow.textContent = "Proposition envoyée";
+        title.textContent = "Merci pour ton partage";
+        text1.innerHTML = "Ta proposition pour la <strong>galerie YEIRN</strong> a bien été reçue.";
+        text2.textContent = "Elle sera relue avant publication. Un délai de 24 à 48h peut être nécessaire.";
+        primaryBtn.textContent = "Voir la galerie";
+        primaryBtn.href = "galerie.html";
+        secondaryBtn.textContent = "Retour à l’accueil";
+        secondaryBtn.href = "index.html";
+        return;
+      }
+
+      eyebrow.textContent = "Inscription validée";
+      title.textContent = "Merci pour ton inscription";
+      text1.innerHTML = "Ton inscription à l’<strong>atelier YEIRN</strong> a bien été prise en compte.";
+      text2.textContent = "Nous avons hâte de te retrouver pour ce temps de création, d’écoute et d’ancrage.";
+      primaryBtn.textContent = "Retour aux ateliers";
+      primaryBtn.href = "ateliers.html";
+      secondaryBtn.textContent = "Retour à l’accueil";
+      secondaryBtn.href = "index.html";
+    })();
+  </script>
 </body>
 </html>

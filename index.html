@@ -3,105 +3,279 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YEIRN — Free Worship</title>
+  <title>YEIRN — Ateliers de louange créative</title>
 
-  <meta name="description" content="Free Worship — un temps libre de louange, d’expression et de présence. Entrée gratuite sur inscription. Activité peinture optionnelle." />
+  <meta
+    name="description"
+    content="YEIRN propose des ateliers de louange créative, des kits, une galerie communautaire et un espace de contact autour de la création, de l’écoute et de l’ancrage."
+  />
 
   <link rel="icon" href="assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
 <body>
   <div class="layout">
-    <aside class="rail" aria-label="Navigation">
+    <aside class="rail" aria-label="Navigation principale">
       <button class="rail__burger" type="button" aria-label="Ouvrir le menu" data-burger>
         <span></span><span></span><span></span>
       </button>
 
-      <a class="rail__brand" href="index.html" aria-label="YEIRN">
+      <a class="rail__brand" href="index.html" aria-label="Retour à l'accueil YEIRN">
         <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
       </a>
 
       <nav class="rail__nav" data-drawer>
         <ul class="rail__menu">
-          <li><a class="is-active" href="index.html">Free Worship</a></li>
-          <li><a href="home.html">YEIRN</a></li>
+          <li><a class="is-active" href="index.html" aria-current="page">Accueil</a></li>
           <li><a href="ateliers.html">Ateliers</a></li>
           <li><a href="kits.html">Kits</a></li>
-          <li><a href="participer.html">Participer</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="participer.html">S’inscrire</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="lien-bio.html">Liens</a></li>
         </ul>
       </nav>
     </aside>
 
     <main class="main">
-      <!-- HERO + GRILLE "FRAME LIKE" -->
-      <section class="fwFrame">
-        <div class="container fwFrame__grid">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <p class="card__kicker">YEIRN • ATELIER EN COURS</p>
+          <h1 class="hero__title">CREER, ÉCOUTER, S’ANCRER</h1>
+          <p class="hero__lead">
+            YEIRN propose des ateliers de louange créative, des espaces sensibles pour écrire,
+            créer, écouter et accueillir ce qui émerge à travers la parole.
+          </p>
 
-          <!-- Col gauche : titre + texte -->
-          <div class="fwFrame__left">
-            <h1 class="fwFrame__title">
-              FREE<br />
-              <span class="accent">WORSHIP</span>
-            </h1>
-
-            <p class="fwFrame__lead">
-              Un temps libre de louange, d’expression et de présence — sans performance, avec simplicité.
-            </p>
-
-            <div class="fwFrame__text">
-              <p>Un espace où l’adoration ne se limite pas à une seule expression.</p>
-              <p>La musique accompagne.</p>
-              <p>La Parole est partagée.</p>
-              <p>Et chacun est libre de répondre à Dieu à sa manière.</p>
-              <p><strong>La louange est gratuite (sur inscription).</strong></p>
-              <p>Des activités créatives payantes peuvent être proposées au cours de la soirée.</p>
-            </div>
-            <div class="fwFrame__cta">
-              <a class="btn" href="participer.html">Participer</a>
-              <a class="btn btn--ghost" href="participer.html#options">Voir les options</a>
-            </div>
+          <div class="hero__cta">
+            <a class="btn" href="participer.html">Réserver mon atelier</a>
+            <a class="btn btn--ghost" href="ateliers.html">Découvrir les ateliers</a>
           </div>
-          <!-- Col centre : mosaïque + photo principale -->
-          <div class="fwFrame__media">
-            <div class="fwFrame__mosaic">
-          <div class="fwFrame__thumb">
-      <img src="assets/img/y_img2.jpeg" alt="" loading="lazy">
-      </div>
-        <div class="fwFrame__thumb">
-      <img src="assets/img/y_img3.jpeg" alt="" loading="lazy">
         </div>
-            </div>
-            <div class="fwFrame__heroImg">
-              <!-- Remplace par ta photo event si tu as : assets/img/event.jpg -->
-              <img src="assets/img/y_img.jpeg" alt="Free Worship - photo principale" loading="lazy">
-            </div>
-          </div>
+      </section>
 
-          <!-- Col droite : prix + infos + bouton -->
-          <aside class="fwFrame__right">
-            <div class="fwFrame__price">0–20 €</div>
-            <p class="fwFrame__rightText">
-              Trois heures pour louer autrement. Créer, danser, écrire, chanter, peindre.
-            </p>
+      <!-- INTRO -->
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <p class="hero__lead" style="margin-top: 0;">
+            Pensé comme un espace de pause, de transformation et d’expression,
+            YEIRN réunit plusieurs dimensions : les ateliers, les kits créatifs,
+            les événements, une galerie communautaire et un accompagnement humain
+            à travers le contact et les demandes de devis.
+          </p>
+        </div>
+      </section>
 
-            <div class="fwFrame__facts">
-              <div><strong>DATE :</strong> Samedi 7 mars 2026 à 19h</div>
-              <div><strong>LIEU :</strong> Temple évangélique du Lamentin</div>
-              <div><strong>DURÉE :</strong> 3 heures</div>
+      <!-- SECTION PRIORITÉ -->
+      <section class="section" aria-labelledby="atelier-priorite">
+        <div class="container section__head">
+          <h2 id="atelier-priorite" class="section__title">L’ATELIER À NE PAS MANQUER</h2>
+          <span class="section__link">Priorité actuelle</span>
+        </div>
+
+        <div class="container grid grid--2" style="align-items: start;">
+          <article class="card">
+            <div class="card__media">
+              <img
+                src="assets/img/poch1.png"
+                alt="Visuel de l’atelier YEIRN"
+                loading="lazy"
+              />
             </div>
-            <div class="fwFrame__note">
-              <div><strong>OPTION</strong></div>
-              <div>Accès à la louange : gratuit (sur inscription)</div>
-              <div>Activité peinture : 20 €</div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">ATELIER DE LOUANGE CRÉATIVE</div>
+              <h3 class="card__title">Un temps de parole, d’écriture et de création</h3>
+              <p class="card__desc">
+                Un atelier guidé pour ralentir, écouter, créer et repartir avec une trace
+                concrète du temps vécu. Accessible à tous, même sans pratique artistique préalable.
+              </p>
+
+              <div class="card__meta" style="margin-bottom: 1rem;">
+                📅 17 et 18 avril
+              </div>
+              <div class="card__meta" style="margin-bottom: 1rem;">
+                📍 Lieu : à préciser
+              </div>
+              <div class="card__meta" style="margin-bottom: 1rem;">
+                ⏰ Horaire : à préciser
+              </div>
+              <div class="card__meta" style="margin-bottom: 1.5rem;">
+                💶 Tarif : à préciser
+              </div>
+
+              <a class="btn" href="participer.html">Je réserve ma place</a>
             </div>
-            <div class="fwFrame__divider"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- UNIVERS -->
+      <section class="section" aria-labelledby="univers-yeirn">
+        <div class="container section__head">
+          <h2 id="univers-yeirn" class="section__title">L’UNIVERS YEIRN</h2>
+          <span class="section__link">4 axes principaux</span>
+        </div>
+
+        <div class="container grid grid--2">
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">ATELIERS</div>
+              <h3 class="card__title">Des espaces guidés par la parole</h3>
+              <p class="card__desc">
+                Des temps de création, d’écoute et d’ancrage pensés pour accompagner
+                un cheminement personnel et spirituel.
+              </p>
+              <a class="btn btn--ghost" href="ateliers.html">Voir les ateliers</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">KITS</div>
+              <h3 class="card__title">Des supports créatifs à découvrir</h3>
+              <p class="card__desc">
+                Une sélection de kits et créations YEIRN pour prolonger l’expérience
+                chez soi ou offrir un support d’expression.
+              </p>
+              <a class="btn btn--ghost" href="kits.html">Découvrir les kits</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">GALERIE</div>
+              <h3 class="card__title">Une dimension plus communautaire</h3>
+              <p class="card__desc">
+                Un espace pour découvrir les œuvres proposées par les artistes
+                et validées avant publication.
+              </p>
+              <a class="btn btn--ghost" href="galerie.html">Voir la galerie</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">CONTACT & DEVIS</div>
+              <h3 class="card__title">Échanger autour d’un besoin ou d’un projet</h3>
+              <p class="card__desc">
+                Une question, une collaboration, une demande de devis ou un besoin
+                d’information ? Un formulaire dédié est disponible.
+              </p>
+              <a class="btn btn--ghost" href="contact.html">Contacter YEIRN</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- FLOW / ÉVÉNEMENTS -->
+      <section class="section" aria-labelledby="flow-worship">
+        <div class="container section__head">
+          <h2 id="flow-worship" class="section__title">ÉVÉNEMENTS & FLOW WORSHIP</h2>
+          <span class="section__link">À venir</span>
+        </div>
+
+        <div class="container">
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">ÉVÉNEMENTS</div>
+              <h3 class="card__title">Une extension vivante de l’univers YEIRN</h3>
+              <p class="card__desc">
+                Les événements Flow Worship prolongent cette vision dans des temps plus collectifs,
+                libres et incarnés. Cette section accueillera prochainement les prochaines dates
+                et informations.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GALERIE / PARTICIPATION -->
+      <section class="section" aria-labelledby="participation-galerie">
+        <div class="container section__head">
+          <h2 id="participation-galerie" class="section__title">PARTICIPER À LA GALERIE</h2>
+          <span class="section__link">Soumission modérée</span>
+        </div>
+
+        <div class="container grid grid--2">
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">PROPOSER UNE ŒUVRE</div>
+              <h3 class="card__title">Partager une création</h3>
+              <p class="card__desc">
+                Les artistes peuvent proposer leurs œuvres accompagnées d’une description obligatoire.
+                Chaque proposition est relue avant publication.
+              </p>
+              <a class="btn" href="proposer-oeuvre.html">Proposer une œuvre</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <div class="card__kicker">DÉLAI DE VALIDATION</div>
+              <h3 class="card__title">Publication sous 24 à 48h</h3>
+              <p class="card__desc">
+                Les œuvres ne sont pas publiées automatiquement. Cela permet à YEIRN
+                de garder une galerie cohérente, respectueuse et qualitative.
+              </p>
+              <a class="btn btn--ghost" href="galerie.html">Découvrir la galerie</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- LIEN EN BIO -->
+      <section class="section" aria-labelledby="bio-links">
+        <div class="container section__head">
+          <h2 id="bio-links" class="section__title">ACCÈS RAPIDE</h2>
+          <span class="section__link">Instagram & mobile</span>
+        </div>
+
+        <div class="container">
+          <article class="card">
+            <div class="card__body" style="text-align: center;">
+              <div class="card__kicker">LIEN EN BIO</div>
+              <h3 class="card__title">Retrouver tous les liens importants en un clic</h3>
+              <p class="card__desc">
+                Une page simple pensée pour Instagram afin d’accéder rapidement
+                aux ateliers, à la galerie, aux kits et au contact.
+              </p>
+              <a class="btn" href="lien-bio.html">Ouvrir la page liens</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section">
+        <div class="container">
+          <article class="card" style="text-align: center;">
+            <div class="card__body">
+              <div class="card__kicker">PRÊT(E) À COMMENCER ?</div>
+              <h2 class="card__title">Réserve ta place ou écris-nous</h2>
+              <p class="card__desc">
+                Tu peux t’inscrire à l’atelier, proposer une œuvre, découvrir les kits
+                ou envoyer une demande via le formulaire de contact.
+              </p>
+              <div class="hero__cta" style="justify-content: center;">
+                <a class="btn" href="participer.html">Je m’inscris</a>
+                <a class="btn btn--ghost" href="contact.html">Contact / devis</a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -114,5 +288,6 @@
   </div>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/chatbot.js"></script>
 </body>
 </html>

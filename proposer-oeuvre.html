@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YEIRN — Proposer une œuvre</title>
+  <meta
+    name="description"
+    content="Propose ton œuvre à la galerie YEIRN. Chaque proposition est étudiée avant publication."
+  />
+
+  <link rel="icon" href="assets/img/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #fff;
+      --panel-2: #f9fafb;
+      --text: #111827;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --accent: #111827;
+      --success-bg: #ecfdf3;
+      --success-text: #027a48;
+      --error-bg: #fef3f2;
+      --error-text: #b42318;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,.9), transparent 30%),
+        var(--bg);
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 28px 16px;
+      display: grid;
+      place-items: center;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1040px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .title {
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .desc, .small {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .info-item {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--panel-2);
+    }
+
+    .info-item h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .field--full {
+      grid-column: 1 / -1;
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #344054;
+    }
+
+    .input, .select, .textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color .16s ease, box-shadow .16s ease;
+    }
+
+    .textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .input:focus, .select:focus, .textarea:focus {
+      border-color: #c7d2fe;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 6px 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: transform .16s ease, opacity .16s ease;
+      width: 100%;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .status {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+
+    .status.is-visible { display: block; }
+    .status--success {
+      background: var(--success-bg);
+      color: var(--success-text);
+      border: 1px solid #abefc6;
+    }
+    .status--error {
+      background: var(--error-bg);
+      color: var(--error-text);
+      border: 1px solid #fecdca;
+    }
+
+    .char-count {
+      text-align: right;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: -8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .shell { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .panel { padding: 22px 16px; }
+      .grid { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="shell">
+      <section class="panel">
+        <div class="eyebrow">YEIRN • Galerie</div>
+        <h1 class="title">Proposer une œuvre</h1>
+        <p class="desc">
+          Tu peux proposer une création à la galerie YEIRN. Chaque proposition est relue avant publication.
+        </p>
+
+        <div class="info-list">
+          <article class="info-item">
+            <h3>Description obligatoire</h3>
+            <p class="small">Explique l’intention, le contexte ou le sens de ton œuvre.</p>
+          </article>
+
+          <article class="info-item">
+            <h3>Validation manuelle</h3>
+            <p class="small">Un délai de 24 à 48h peut être nécessaire avant publication.</p>
+          </article>
+
+          <article class="info-item">
+            <h3>Lien image</h3>
+            <p class="small">Ajoute un lien Drive ou un lien direct vers l’image de ton œuvre.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 style="font-size:24px; margin-bottom:8px;">Envoyer une proposition</h2>
+        <p class="desc" style="margin-bottom:22px;">
+          Remplis ce formulaire. Tu recevras un message de confirmation une fois l’envoi effectué.
+        </p>
+
+        <form id="galleryForm" novalidate>
+          <input type="hidden" name="formType" value="gallery" />
+
+          <div class="grid">
+            <div class="field">
+              <label class="label" for="artistName">Nom ou pseudo</label>
+              <input class="input" id="artistName" type="text" name="artistName" required />
+            </div>
+
+            <div class="field">
+              <label class="label" for="email">Email</label>
+              <input class="input" id="email" type="email" name="email" autocomplete="email" required />
+            </div>
+
+            <div class="field field--full">
+              <label class="label" for="title">Titre de l’œuvre</label>
+              <input class="input" id="title" type="text" name="title" required />
+            </div>
+
+            <div class="field">
+              <label class="label" for="artType">Type d’œuvre</label>
+              <select class="select" id="artType" name="artType" required>
+                <option value="">— Choisir —</option>
+                <option value="peinture">Peinture</option>
+                <option value="dessin">Dessin</option>
+                <option value="photo">Photo</option>
+                <option value="texte">Texte</option>
+                <option value="mixte">Technique mixte</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="label" for="imageUrl">Lien image / Drive</label>
+              <input class="input" id="imageUrl" type="url" name="imageUrl" placeholder="https://..." required />
+            </div>
+
+            <div class="field field--full">
+              <label class="label" for="description">Description de l’œuvre</label>
+              <textarea
+                class="textarea"
+                id="description"
+                name="description"
+                maxlength="1500"
+                placeholder="Décris ton œuvre, son intention, son contexte ou ce qu’elle exprime."
+                required
+              ></textarea>
+            </div>
+
+            <div class="field field--full">
+              <div class="char-count"><span id="charCount">0</span>/1500</div>
+            </div>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" name="publicationConsent" required />
+            <span>J’autorise YEIRN à me recontacter au sujet de cette proposition et à publier l’œuvre après validation.</span>
+          </label>
+
+          <button class="btn" id="submitBtn" type="submit">Envoyer ma proposition</button>
+          <p class="status" id="galleryMsg" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const ENDPOINT = "REMPLACE_ICI_PAR_TON_URL_APPS_SCRIPT";
+
+    const form = document.getElementById("galleryForm");
+    const msg = document.getElementById("galleryMsg");
+    const submitBtn = document.getElementById("submitBtn");
+    const descriptionField = document.getElementById("description");
+    const charCount = document.getElementById("charCount");
+
+    function setStatus(text, type) {
+      msg.textContent = text || "";
+      msg.className = "status is-visible " + (type === "success" ? "status--success" : "status--error");
+    }
+
+    function clearStatus() {
+      msg.textContent = "";
+      msg.className = "status";
+    }
+
+    function updateCharCount() {
+      charCount.textContent = descriptionField.value.length;
+    }
+
+    descriptionField.addEventListener("input", updateCharCount);
+    updateCharCount();
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      clearStatus();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi en cours...";
+
+      const formData = new FormData(form);
+
+      const body = new URLSearchParams({
+        formType: "gallery",
+        artistName: (formData.get("artistName") || "").toString().trim(),
+        email: (formData.get("email") || "").toString().trim(),
+        title: (formData.get("title") || "").toString().trim(),
+        artType: (formData.get("artType") || "").toString().trim(),
+        imageUrl: (formData.get("imageUrl") || "").toString().trim(),
+        description: (formData.get("description") || "").toString().trim(),
+        publicationConsent: formData.get("publicationConsent") ? "oui" : "non"
+      });
+
+      try {
+        const response = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+          },
+          body: body.toString()
+        });
+
+        const raw = await response.text();
+        let result = {};
+
+        try {
+          result = JSON.parse(raw);
+        } catch (err) {
+          result = { ok: true };
+        }
+
+        if (!response.ok || result.ok === false) {
+          throw new Error(result.error || "Erreur lors de l’envoi.");
+        }
+
+        setStatus("Proposition envoyée avec succès. Redirection en cours...", "success");
+
+        setTimeout(() => {
+          window.location.href = "merci.html?type=gallery";
+        }, 700);
+
+      } catch (error) {
+        console.error(error);
+        setStatus("Une erreur est survenue. Merci de réessayer.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Envoyer ma proposition";
+      }
+    });
+  </script>
+</body>
+</html>
