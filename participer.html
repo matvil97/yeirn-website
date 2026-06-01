@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YEIRN — Inscription atelier</title>
+  <title>YEIRN — Inscription Flow Worship</title>
 
   <meta
     name="description"
-    content="Inscris-toi à l’atelier YEIRN des 17 et 18 avril."
+    content="Inscris-toi à Flow Worship le 13 juin."
   />
 
   <link rel="icon" href="assets/img/logo.png" type="image/png" />
@@ -42,8 +42,10 @@
       <nav class="rail__nav" data-drawer>
         <ul class="rail__menu">
           <li><a href="index.html">Accueil</a></li>
+          <li><a href="flow-worship.html">Flow Worship</a></li>
           <li><a href="ateliers.html">Ateliers</a></li>
           <li><a href="kits.html">Kits</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a class="is-active" href="participer.html" aria-current="page">S’inscrire</a></li>
         </ul>
       </nav>
@@ -52,10 +54,10 @@
     <main class="main">
       <section class="hero">
         <div class="container">
-          <p class="card__kicker">ATELIER YEIRN • 17 & 18 AVRIL</p>
-          <h1 class="hero__title">RESERVER MA PLACE</h1>
+          <p class="card__kicker">FLOW WORSHIP • 13 JUIN</p>
+          <h1 class="hero__title">RÉSERVER MA PLACE</h1>
           <p class="hero__lead">
-            Remplis le formulaire pour t’inscrire à l’atelier. Tu recevras ensuite un email de confirmation avec les informations pratiques.
+            Remplis le formulaire pour t’inscrire à Flow Worship.
           </p>
         </div>
       </section>
@@ -65,20 +67,20 @@
           <div class="fw__panel fw__panel--ghost">
             <h2 class="fw__h3">Informations</h2>
             <p class="fw__p">
-              L’atelier YEIRN est un temps de création, d’écoute et d’ancrage guidé par la parole.
+              Flow Worship est un temps libre de louange, d’expression et de présence.
             </p>
 
             <div class="card__meta" style="margin-bottom: 1rem;">
-              📅 Dates : 17 avril ou 18 avril
+              📅 Date : 13 juin
             </div>
             <div class="card__meta" style="margin-bottom: 1rem;">
-              📍 Lieu : à préciser
+              📍 Lieu : Centre évangélique du Lamentin
             </div>
             <div class="card__meta" style="margin-bottom: 1rem;">
-              ⏰ Horaire : à préciser
+              ⏰ Horaire : 19h à 22h
             </div>
             <div class="card__meta" style="margin-bottom: 1rem;">
-              💶 Tarif : à préciser
+              💶 Tarif : Entrée libre
             </div>
 
             <p class="fw__small" style="margin-top: 1rem;">
@@ -86,13 +88,14 @@
             </p>
           </div>
 
-
           <div class="fw__panel">
             <h2 class="fw__h3">Formulaire d’inscription</h2>
-                      <p class="fw__small">
-  Une question avant de t’inscrire ?  
-  <a href="contact.html">Contacte-nous</a>
-</p>
+
+            <p class="fw__small">
+              Une question avant de t’inscrire ?
+              <a href="contact.html">Contacte-nous</a>
+            </p>
+
             <p class="fw__p">
               Renseigne tes informations pour réserver ta place.
             </p>
@@ -119,15 +122,6 @@
               </label>
 
               <label class="fw__field">
-                <span>Date choisie</span>
-                <select name="atelierDate" class="fw__select" required>
-                  <option value="">— Choisir une date —</option>
-                  <option value="17 avril">17 avril</option>
-                  <option value="18 avril">18 avril</option>
-                </select>
-              </label>
-
-              <label class="fw__field">
                 <span>Message ou précision (optionnel)</span>
                 <textarea
                   name="message"
@@ -136,7 +130,9 @@
                 ></textarea>
               </label>
 
-              <input type="hidden" name="eventType" value="Atelier YEIRN" />
+              <input type="hidden" name="formType" value="atelier" />
+              <input type="hidden" name="eventType" value="Flow Worship — 13 juin" />
+              <input type="hidden" name="atelierDate" value="13 juin" />
 
               <label class="fw__check">
                 <input type="checkbox" name="consent" required />

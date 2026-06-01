@@ -13,40 +13,38 @@ if (form) {
     e.preventDefault();
 
     const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) submitBtn.disabled = true;
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Envoi en cours...";
+    }
 
     setMsg("Envoi en cours...");
 
     try {
       const formData = new FormData(form);
-
-      const body = new URLSearchParams({
-        firstName: formData.get("firstName")?.toString().trim() || "",
-        lastName: formData.get("lastName")?.toString().trim() || "",
-        email: formData.get("email")?.toString().trim() || "",
-        phone: formData.get("phone")?.toString().trim() || "",
-        atelierDate: formData.get("atelierDate")?.toString().trim() || "",
-        message: formData.get("message")?.toString().trim() || "",
-        eventType: formData.get("eventType")?.toString().trim() || "Atelier YEIRN",
-        consent: formData.get("consent") ? "oui" : "non"
-      });
+      const body = new URLSearchParams(formData);
 
       await fetch(ENDPOINT, {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
         },
         body: body.toString()
       });
 
-      // Si on arrive ici, on considère l'envoi comme réussi
+      setMsg("Inscription validée. Redirection...");
       window.location.href = "merci.html?type=atelier";
-
 
     } catch (error) {
       console.error("Erreur inscription :", error);
-      setMsg("Une erreur est survenue. Merci de réessayer.");
-      if (submitBtn) submitBtn.disabled = false;
+      setMsg("Erreur lors de l’envoi. Merci de réessayer.");
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Valider mon inscription";
+      }
     }
   });
 }

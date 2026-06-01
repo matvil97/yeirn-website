@@ -3,513 +3,692 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YEIRN — Ateliers créatifs</title>
+  <title>YEIRN — Nos ateliers</title>
   <meta
     name="description"
-    content="Découvrez les ateliers créatifs YEIRN et explorez chaque expérience à travers un parcours sensible, guidé par la parole, l’écoute et la création."
+    content="Découvrez les ateliers créatifs YEIRN dans une expérience mobile fluide, pensée pour explorer, swiper et réserver facilement."
   />
-  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <link rel="icon" href="assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    .atelierIntro {
-      padding: 12px 0 0;
+    :root {
+      --orange: #f39208;
+      --grey: #707070;
+      --light: #ececec;
+      --line: #a3a3a3;
+      --text: #5f5f5f;
+      --side-w: 86px;
+      --footer-h: 42px;
+      --card-w: min(76vw, 360px);
     }
 
-    .atelierIntro__box {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
+    * {
+      box-sizing: border-box;
     }
 
-    .atelierIntro__kicker {
-      margin: 0 0 10px;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
+    html,
+    body {
+      min-height: 100%;
+      background: var(--light);
     }
 
-    .atelierIntro__title {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-
-    .atelierIntro__text {
+    body {
       margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+    }
+
+    .atelierPage {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: var(--side-w) 1fr;
+      grid-template-rows: 1fr auto;
+      background: var(--light);
+    }
+
+    .atelierSide {
+      grid-row: 1 / 3;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0 12px;
+    }
+
+    .atelierBurger {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .atelierBurger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      margin: 5px auto;
+      border-radius: 99px;
+      background: var(--grey);
+    }
+
+    .atelierMarkLink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .atelierMark {
+      width: 50px;
+      height: 78px;
+      object-fit: contain;
+      display: block;
+      transition: transform .18s ease;
+      cursor: pointer;
+    }
+
+    .atelierMark:hover {
+      transform: scale(1.04);
+    }
+
+    .atelierMain {
+      min-width: 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .atelierHeader {
+      padding: 22px 28px 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .atelierKicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #4f4f4f;
+      font-weight: 700;
+    }
+
+    .atelierTitle {
+      margin: 0;
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(56px, 8vw, 96px);
+      line-height: .9;
+      letter-spacing: -.03em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .atelierIntro {
+      margin: 16px 0 0;
       max-width: 760px;
-      color: var(--muted);
+      font-size: 15px;
       line-height: 1.75;
+      color: var(--text);
     }
 
-    .atelierSlider {
-      padding-top: 8px;
-    }
-
-    .atelierSlider__top {
+    .atelierSliderHead {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 18px;
+      padding: 16px 28px 0;
     }
 
-    .atelierSlider__hint {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
+    .atelierSliderHint {
+      margin: 0;
+      color: var(--orange);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
     }
 
-    .atelierSlider__controls {
+    .atelierSliderControls {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-shrink: 0;
     }
 
-    .atelierSlider__btn {
+    .atelierSliderBtn {
       appearance: none;
       border: 1px solid var(--line);
-      background: #fff;
-      color: inherit;
-      width: 44px;
-      height: 44px;
+      background: transparent;
+      color: var(--grey);
+      width: 42px;
+      height: 42px;
       border-radius: 999px;
       cursor: pointer;
       font-size: 18px;
       line-height: 1;
-      transition: transform .16s ease, border-color .16s ease, background .16s ease;
     }
 
-    .atelierSlider__btn:hover {
-      transform: translateY(-1px);
-      border-color: #cfcfcf;
-      background: #fafafa;
+    .atelierSlider {
+      padding: 18px 0 24px;
+      overflow: hidden;
     }
 
-    .atelierSlider__viewport {
+    .atelierViewport {
       overflow-x: auto;
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding-bottom: 4px;
+      padding: 0 28px 8px;
     }
 
-    .atelierSlider__viewport::-webkit-scrollbar {
+    .atelierViewport::-webkit-scrollbar {
       display: none;
     }
 
-    .atelierSlider__track {
+    .atelierTrack {
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: minmax(290px, 78%);
+      grid-auto-columns: var(--card-w);
       gap: 18px;
+      width: max-content;
     }
 
     .atelierCard {
       scroll-snap-align: start;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
       text-decoration: none;
       color: inherit;
-      display: block;
-      border-radius: var(--radius);
-      background: #fff;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
 
-    .atelierCard:hover {
-      transform: translateY(-2px);
-      border-color: #d7d7d7;
-      box-shadow: 0 12px 30px rgba(0,0,0,.06);
-    }
-
-    .atelierCard__media {
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
+    .atelierCard__image {
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
       background: #f4f4f4;
+      border-bottom: 1px solid rgba(163,163,163,.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
     }
 
-    .atelierCard__media img {
+    .atelierCard__image img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
       display: block;
-      object-fit: cover;
     }
 
     .atelierCard__body {
-      padding: 18px;
+      padding: 18px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
     }
 
-    .atelierCard__kicker {
-      margin: 0 0 8px;
+    .atelierCard__small {
+      margin: 0;
       font-size: 11px;
-      letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--muted);
+      letter-spacing: .12em;
+      color: #4d4d4d;
+      font-weight: 700;
     }
 
     .atelierCard__title {
-      margin: 0 0 8px;
+      margin: 0;
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(34px, 6vw, 56px);
+      line-height: .9;
+      text-transform: uppercase;
+      letter-spacing: -.03em;
+      color: var(--grey);
+    }
+
+    .atelierCard__subtitle {
+      margin: -2px 0 0;
+      font-family: "Oswald", sans-serif;
       font-size: 22px;
-      line-height: 1.15;
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--grey);
     }
 
     .atelierCard__meta {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 14px;
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
     }
 
     .atelierCard__desc {
-      margin: 0 0 16px;
-      color: var(--muted);
-      line-height: 1.7;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+      min-height: 88px;
     }
 
-    .atelierCard__footer {
+    .atelierCard__actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .atelierCard__btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      text-decoration: none;
+      color: var(--grey);
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      text-align: center;
+    }
+
+    .atelierCard__btn--primary {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    .atelierInfoBand {
+      border-top: 1px solid var(--line);
+      padding: 20px 28px 28px;
+    }
+
+    .atelierInfoBand__title {
+      margin: 0 0 10px;
+      font-family: "Oswald", sans-serif;
+      font-size: 34px;
+      line-height: .95;
+      text-transform: uppercase;
+      color: var(--grey);
+      letter-spacing: -.03em;
+    }
+
+    .atelierInfoBand__text {
+      margin: 0;
+      max-width: 760px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .atelierFooter {
+      height: var(--footer-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: var(--grey);
+      font-size: 15px;
+    }
+
+    .atelierFooter strong {
+      font-weight: 500;
+    }
+
+    .atelierNav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--light);
+      z-index: 80;
+      overflow: auto;
+    }
+
+    .atelierNav.is-open {
+      display: block;
+    }
+
+    .atelierNav__inner {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0 28px;
+    }
+
+    .atelierNav__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0 20px 16px;
+    }
+
+    .atelierNav__close {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      font-size: 44px;
+      line-height: 1;
+      color: var(--grey);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .atelierNav__mark {
+      width: 54px;
+      height: 84px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .atelierNav__lead {
+      padding: 0 20px 18px;
+      max-width: 320px;
+      color: var(--orange);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .atelierNav__links {
+      margin-top: 8px;
+      border-top: 1px solid var(--orange);
+    }
+
+    .atelierNav__link {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--orange);
+      text-decoration: none;
+      color: var(--orange);
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(28px, 7vw, 52px);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -.03em;
     }
 
-    .atelierCard__status {
-      font-size: 13px;
-      color: var(--muted);
+    .atelierNav__link span:last-child {
+      font-size: .72em;
+      flex-shrink: 0;
     }
 
-    .atelierCard__cta {
-      font-weight: 700;
-      font-size: 14px;
+    .atelierNav__brand {
+      margin-top: auto;
+      text-align: center;
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(66px, 18vw, 108px);
+      line-height: .9;
+      letter-spacing: -.04em;
+      color: var(--orange);
+      padding: 34px 20px 0;
+      text-transform: uppercase;
     }
 
-    .atelierInfo {
-      padding-top: 0;
-    }
-
-    @media (min-width: 900px) {
-      .atelierSlider__track {
-        grid-auto-columns: minmax(320px, 48%);
+    @media (max-width: 900px) {
+      :root {
+        --card-w: 78vw;
       }
     }
 
     @media (max-width: 720px) {
-      .atelierSlider__top {
-        flex-direction: column;
-        align-items: flex-start;
+      :root {
+        --side-w: 76px;
+        --card-w: 82vw;
       }
 
-      .atelierSlider__track {
-        grid-auto-columns: 88%;
+      .atelierHeader {
+        padding: 18px 18px 18px;
+      }
+
+      .atelierSliderHead {
+        padding: 14px 18px 0;
+      }
+
+      .atelierViewport {
+        padding: 0 18px 8px;
+      }
+
+      .atelierInfoBand {
+        padding: 18px 18px 24px;
+      }
+
+      .atelierTitle {
+        font-size: clamp(44px, 14vw, 72px);
+      }
+
+      .atelierCard__title {
+        font-size: clamp(30px, 10vw, 46px);
+      }
+
+      .atelierCard__subtitle {
+        font-size: 18px;
+      }
+
+      .atelierFooter {
+        font-size: 13px;
+        gap: 12px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="layout">
-    <aside class="rail" aria-label="Navigation principale">
-      <button
-        class="rail__burger"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        data-burger
-      >
-        <span></span><span></span><span></span>
+  <div class="atelierPage">
+    <aside class="atelierSide" aria-label="Navigation rapide">
+      <button class="atelierBurger" type="button" aria-label="Ouvrir le menu" id="openMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <a class="rail__brand" href="index.html" aria-label="Retour à l'accueil YEIRN">
-        <img class="rail__logo" src="assets/img/logo.png" alt="Logo YEIRN" />
+      <a class="atelierMarkLink" href="index.html" aria-label="Retour à l'accueil">
+        <img class="atelierMark" src="assets/img/logo.png" alt="Logo YEIRN" />
       </a>
-
-      <nav class="rail__nav" data-drawer>
-        <ul class="rail__menu">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a class="is-active" href="ateliers.html" aria-current="page">Ateliers</a></li>
-          <li><a href="kits.html">Kits</a></li>
-          <li><a href="flow-worship.html">Flow Worship</a></li>
-          <li><a href="galerie.html">Galerie</a></li>
-          <li><a href="participer.html">Inscription</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
     </aside>
 
-    <main class="main">
-      <section class="hero">
-        <div class="container">
-          <p class="card__kicker">YEIRN</p>
-          <h1 class="hero__title">ATELIER CRÉATIF YEIRN</h1>
-          <p class="hero__lead">
-            Chaque atelier YEIRN est pensé comme un espace de parole, d’écoute, d’écriture
-            et de création. Découvre les différents formats en faisant glisser les cartes,
-            puis accède à chaque page pour voir les détails et t’inscrire.
-          </p>
+    <main class="atelierMain">
+      <header class="atelierHeader">
+        <p class="atelierKicker">Yeirn • Ateliers créatifs</p>
+        <h1 class="atelierTitle">Nos ateliers</h1>
+        <p class="atelierIntro">
+          Découvre les différents formats YEIRN dans une expérience pensée pour le mobile :
+          fais glisser, explore les cartes, ouvre les détails ou réserve directement.
+        </p>
+      </header>
 
-          <div class="hero__cta">
-            <a class="btn" href="#liste-ateliers">Voir les ateliers</a>
-            <a class="btn btn--ghost" href="participer.html">S’inscrire</a>
-          </div>
+      <div class="atelierSliderHead">
+        <p class="atelierSliderHint">Swipe pour explorer →</p>
+
+        <div class="atelierSliderControls" aria-label="Navigation du slider">
+          <button class="atelierSliderBtn" type="button" id="prevBtn" aria-label="Atelier précédent">←</button>
+          <button class="atelierSliderBtn" type="button" id="nextBtn" aria-label="Atelier suivant">→</button>
         </div>
-      </section>
+      </div>
 
-      <section class="section atelierIntro" style="padding-top: 0;">
-        <div class="container">
-          <div class="atelierIntro__box">
-            <p class="atelierIntro__kicker">INTRODUCTION</p>
-            <h2 class="atelierIntro__title">Un parcours créatif guidé par la parole</h2>
-            <p class="atelierIntro__text">
-              Les ateliers YEIRN sont des espaces sensibles de pause et de transformation.
-              Chaque rencontre invite à ralentir, écouter, accueillir ce qui émerge et
-              lui donner une forme à travers l’écriture, la création ou le geste. L’idée
-              n’est pas la performance, mais la mise en mouvement intérieure, dans un cadre
-              simple, guidé et accessible.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="liste-ateliers" class="section atelierSlider" aria-labelledby="atelier-slider-title">
-        <div class="container section__head">
-          <h2 id="atelier-slider-title" class="section__title">NOS ATELIERS</h2>
-          <span class="section__link">Swipe / glisse pour découvrir</span>
-        </div>
-
-        <div class="container">
-          <div class="atelierSlider__top">
-            <p class="atelierSlider__hint">
-              Fais défiler les ateliers horizontalement. Tu peux glisser au doigt sur mobile
-              ou utiliser les flèches pour parcourir les différents formats.
-            </p>
-
-            <div class="atelierSlider__controls" aria-label="Navigation du carrousel">
-              <button class="atelierSlider__btn" type="button" id="atelierPrev" aria-label="Atelier précédent">←</button>
-              <button class="atelierSlider__btn" type="button" id="atelierNext" aria-label="Atelier suivant">→</button>
-            </div>
-          </div>
-
-          <div class="atelierSlider__viewport" id="atelierViewport">
-            <div class="atelierSlider__track">
-              <a class="atelierCard" href="participer.html">
-                <div class="atelierCard__media">
-                  <img src="assets/img/poch1.png" alt="Atelier de louange créative" loading="lazy" />
-                </div>
-                <div class="atelierCard__body">
-                  <p class="atelierCard__kicker">ATELIER À LA UNE</p>
-                  <h3 class="atelierCard__title">Atelier de louange créative</h3>
-                  <p class="atelierCard__meta">17 & 18 avril • Places limitées</p>
-                  <p class="atelierCard__desc">
-                    Un temps pour créer, écouter, écrire et s’ancrer à travers la parole.
-                    Une expérience guidée, sensible et accessible à tous.
-                  </p>
-                  <div class="atelierCard__footer">
-                    <span class="atelierCard__status">Voir infos & inscription</span>
-                    <span class="atelierCard__cta">Découvrir →</span>
-                  </div>
-                </div>
-              </a>
-
-              <a class="atelierCard" href="atelier-echo.html">
-                <div class="atelierCard__media">
-                  <img src="assets/img/poch2.png" alt="Atelier Echo" loading="lazy" />
-                </div>
-                <div class="atelierCard__body">
-                  <p class="atelierCard__kicker">FORMAT THÉMATIQUE</p>
-                  <h3 class="atelierCard__title">Echo</h3>
-                  <p class="atelierCard__meta">Parole • Écoute • Résonance</p>
-                  <p class="atelierCard__desc">
-                    Un atelier centré sur l’écoute intérieure et la manière dont une parole
-                    reçue vient résonner dans l’écriture et la création.
-                  </p>
-                  <div class="atelierCard__footer">
-                    <span class="atelierCard__status">Page détail</span>
-                    <span class="atelierCard__cta">Voir l’atelier →</span>
-                  </div>
-                </div>
-              </a>
-
-              <a class="atelierCard" href="atelier-anchor.html">
-                <div class="atelierCard__media">
-                  <img src="assets/img/poch3.png" alt="Atelier Anchor" loading="lazy" />
-                </div>
-                <div class="atelierCard__body">
-                  <p class="atelierCard__kicker">FORMAT GUIDÉ</p>
-                  <h3 class="atelierCard__title">Anchor</h3>
-                  <p class="atelierCard__meta">Ancrage • Récit • Partage</p>
-                  <p class="atelierCard__desc">
-                    Un temps d’ancrage autour du récit personnel, avec des supports créatifs
-                    pour structurer, relire et habiter ce qui a été vécu.
-                  </p>
-                  <div class="atelierCard__footer">
-                    <span class="atelierCard__status">Page détail</span>
-                    <span class="atelierCard__cta">Voir l’atelier →</span>
-                  </div>
-                </div>
-              </a>
-
-              <a class="atelierCard" href="atelier-flow.html">
-                <div class="atelierCard__media">
-                  <img src="assets/img/poch1.png" alt="Atelier Flow" loading="lazy" />
-                </div>
-                <div class="atelierCard__body">
-                  <p class="atelierCard__kicker">FORMAT LIBRE</p>
-                  <h3 class="atelierCard__title">Flow</h3>
-                  <p class="atelierCard__meta">Geste • Écriture • Expression</p>
-                  <p class="atelierCard__desc">
-                    Un atelier plus fluide où la parole circule à travers le mouvement,
-                    le geste, l’écriture et l’expression spontanée.
-                  </p>
-                  <div class="atelierCard__footer">
-                    <span class="atelierCard__status">Page détail</span>
-                    <span class="atelierCard__cta">Voir l’atelier →</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section atelierInfo" aria-labelledby="atelier-infos">
-        <div class="container section__head">
-          <h2 id="atelier-infos" class="section__title">COMMENT ÇA FONCTIONNE ?</h2>
-          <span class="section__link">Parcours simple</span>
-        </div>
-
-        <div class="container grid grid--3">
-          <article class="card">
-            <div class="card__body">
-              <div class="card__kicker">1. EXPLORER</div>
-              <h3 class="card__title">Faire défiler les ateliers</h3>
-              <p class="card__desc">
-                Parcours les différents formats comme un slider et découvre les intentions de chaque proposition.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__body">
-              <div class="card__kicker">2. OUVRIR</div>
-              <h3 class="card__title">Accéder à la page détail</h3>
-              <p class="card__desc">
-                Clique sur l’atelier qui t’appelle pour afficher les informations pratiques et le contenu complet.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__body">
-              <div class="card__kicker">3. S’INSCRIRE</div>
-              <h3 class="card__title">Réserver sa place</h3>
-              <p class="card__desc">
-                Une fois ton atelier choisi, l’inscription se fait simplement via le formulaire dédié.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="faq-atelier">
-        <div class="container section__head">
-          <h2 id="faq-atelier" class="section__title">QUESTIONS FRÉQUENTES</h2>
-          <span class="section__link">Infos utiles</span>
-        </div>
-
-        <div class="container grid grid--2">
-          <article class="card">
-            <div class="card__body">
-              <h3 class="card__title">Faut-il savoir dessiner ou peindre ?</h3>
-              <p class="card__desc">
-                Non. Les ateliers sont accessibles même sans pratique artistique préalable.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__body">
-              <h3 class="card__title">Le matériel est-il fourni ?</h3>
-              <p class="card__desc">
-                Cela dépend du format. Les informations sont précisées sur la page détaillée de chaque atelier.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__body">
-              <h3 class="card__title">Peut-on venir seul(e) ?</h3>
-              <p class="card__desc">
-                Oui. Les ateliers YEIRN sont pensés pour accueillir chacun dans un cadre simple et bienveillant.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card__body">
-              <h3 class="card__title">Comment s’inscrire ?</h3>
-              <p class="card__desc">
-                Il suffit d’ouvrir la page de l’atelier choisi, puis de remplir le formulaire d’inscription.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <article class="card" style="text-align: center;">
-            <div class="card__body">
-              <div class="card__kicker">PRÊT(E) À EXPLORER ?</div>
-              <h2 class="card__title">Découvre les ateliers puis réserve ta place</h2>
-              <p class="card__desc">
-                Commence par faire défiler les différents formats, puis ouvre l’atelier qui te correspond.
-              </p>
-              <div class="hero__cta" style="justify-content:center;">
-                <a class="btn" href="#liste-ateliers">Voir les ateliers</a>
-                <a class="btn btn--ghost" href="participer.html">Aller à l’inscription</a>
+      <section class="atelierSlider" aria-label="Slider des ateliers">
+        <div class="atelierViewport" id="atelierViewport">
+          <div class="atelierTrack">
+            <article class="atelierCard">
+              <div class="atelierCard__image">
+                <img src="assets/img/poch1.png" alt="Atelier créatif YEIRN" loading="lazy" />
               </div>
-            </div>
-          </article>
+
+              <div class="atelierCard__body">
+                <p class="atelierCard__small">Atelier à la une</p>
+                <h2 class="atelierCard__title">Atelier</h2>
+                <p class="atelierCard__subtitle">Créatif</p>
+                <p class="atelierCard__meta">17–18 avril 2026 • Places limitées</p>
+                <p class="atelierCard__desc">
+                  Un temps de parole, d’écoute, d’écriture et de création pour ralentir,
+                  accueillir ce qui est là et repartir avec une trace concrète.
+                </p>
+
+                <div class="atelierCard__actions">
+                  <a class="atelierCard__btn" href="atelier-creatif.html">Voir</a>
+                  <a class="atelierCard__btn atelierCard__btn--primary" href="participer.html">Réserver</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="atelierCard">
+              <div class="atelierCard__image">
+                <img src="assets/img/poch2.png" alt="Atelier Anchor" loading="lazy" />
+              </div>
+
+              <div class="atelierCard__body">
+                <p class="atelierCard__small">Atelier guidé</p>
+                <h2 class="atelierCard__title">Anchor</h2>
+                <p class="atelierCard__subtitle">Par la parole</p>
+                <p class="atelierCard__meta">Ancrage • Récit • Partage</p>
+                <p class="atelierCard__desc">
+                  Un espace pour structurer, relire et habiter son propre récit, avec des
+                  supports créatifs pour ancrer l’expérience intérieure.
+                </p>
+
+                <div class="atelierCard__actions">
+                  <a class="atelierCard__btn" href="atelier-anchor.html">Voir</a>
+                  <a class="atelierCard__btn atelierCard__btn--primary" href="participer.html">Réserver</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="atelierCard">
+              <div class="atelierCard__image">
+                <img src="assets/img/poch3.png" alt="Atelier Flow" loading="lazy" />
+              </div>
+
+              <div class="atelierCard__body">
+                <p class="atelierCard__small">Atelier libre</p>
+                <h2 class="atelierCard__title">Flow</h2>
+                <p class="atelierCard__subtitle">Expression sensible</p>
+                <p class="atelierCard__meta">Geste • Écriture • Expression</p>
+                <p class="atelierCard__desc">
+                  Un moment plus fluide, où la parole circule à travers le geste, l’écriture
+                  et l’expression spontanée, dans un cadre simple et libre.
+                </p>
+
+                <div class="atelierCard__actions">
+                  <a class="atelierCard__btn" href="atelier-flow.html">Voir</a>
+                  <a class="atelierCard__btn atelierCard__btn--primary" href="participer.html">Réserver</a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <footer class="footer">
-        <div class="container footer__inner">
-          <p>© <span id="year"></span> YEIRN</p>
-        </div>
-      </footer>
+      <section class="atelierInfoBand">
+        <h2 class="atelierInfoBand__title">Parcours rapide</h2>
+        <p class="atelierInfoBand__text">
+          Sur mobile, tu peux explorer les ateliers comme un slider, ouvrir la fiche détail
+          si tu veux en savoir plus, ou réserver directement depuis une carte pour aller plus vite.
+        </p>
+      </section>
     </main>
+
+    <footer class="atelierFooter">
+      <span>2026</span>
+      <strong>YEIRN</strong>
+    </footer>
   </div>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/chatbot.js"></script>
+  <div class="atelierNav" id="mobileMenu" aria-hidden="true">
+    <div class="atelierNav__inner">
+      <div class="atelierNav__top">
+        <button class="atelierNav__close" type="button" aria-label="Fermer le menu" id="closeMenuBtn">×</button>
+        <img class="atelierNav__mark" src="assets/img/logo.png" alt="Logo YEIRN" />
+      </div>
+
+      <div class="atelierNav__lead">
+        Découvre les différents espaces de l’univers YEIRN et accède rapidement à chaque page importante.
+      </div>
+
+      <nav class="atelierNav__links" aria-label="Navigation principale">
+        <a class="atelierNav__link" href="index.html"><span>Accueil</span><span>→</span></a>
+        <a class="atelierNav__link" href="ateliers.html"><span>Nos ateliers</span><span>→</span></a>
+        <a class="atelierNav__link" href="flow-worship.html"><span>Flow Worship</span><span>→</span></a>
+        <a class="atelierNav__link" href="kits.html"><span>Nos kits</span><span>→</span></a>
+        <a class="atelierNav__link" href="galerie.html"><span>Galerie</span><span>→</span></a>
+        <a class="atelierNav__link" href="contact.html"><span>Nous contacter</span><span>→</span></a>
+        <a class="atelierNav__link" href="lien-bio.html"><span>Liens</span><span>→</span></a>
+      </nav>
+
+      <div class="atelierNav__brand">YEIRN</div>
+    </div>
+  </div>
+
   <script>
     (function () {
+      const menu = document.getElementById("mobileMenu");
+      const openBtn = document.getElementById("openMenuBtn");
+      const closeBtn = document.getElementById("closeMenuBtn");
+
+      if (menu && openBtn && closeBtn) {
+        function openMenu() {
+          menu.classList.add("is-open");
+          menu.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeMenu() {
+          menu.classList.remove("is-open");
+          menu.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+
+        openBtn.addEventListener("click", openMenu);
+        closeBtn.addEventListener("click", closeMenu);
+
+        menu.addEventListener("click", (event) => {
+          if (event.target === menu) closeMenu();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeMenu();
+        });
+      }
+
       const viewport = document.getElementById("atelierViewport");
-      const prevBtn = document.getElementById("atelierPrev");
-      const nextBtn = document.getElementById("atelierNext");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
 
-      if (!viewport || !prevBtn || !nextBtn) return;
+      if (viewport && prevBtn && nextBtn) {
+        function getCardStep() {
+          const firstCard = viewport.querySelector(".atelierCard");
+          if (!firstCard) return viewport.clientWidth * 0.85;
+          const gap = 18;
+          return firstCard.getBoundingClientRect().width + gap;
+        }
 
-      const getStep = () => {
-        const firstCard = viewport.querySelector(".atelierCard");
-        if (!firstCard) return viewport.clientWidth * 0.85;
-        const gap = 18;
-        return firstCard.getBoundingClientRect().width + gap;
-      };
+        prevBtn.addEventListener("click", () => {
+          viewport.scrollBy({ left: -getCardStep(), behavior: "smooth" });
+        });
 
-      prevBtn.addEventListener("click", () => {
-        viewport.scrollBy({ left: -getStep(), behavior: "smooth" });
-      });
-
-      nextBtn.addEventListener("click", () => {
-        viewport.scrollBy({ left: getStep(), behavior: "smooth" });
-      });
+        nextBtn.addEventListener("click", () => {
+          viewport.scrollBy({ left: getCardStep(), behavior: "smooth" });
+        });
+      }
     })();
   </script>
 </body>
