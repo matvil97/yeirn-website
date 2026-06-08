@@ -79,8 +79,11 @@
             <div class="card__meta" style="margin-bottom: 1rem;">
               ⏰ Horaire : 19h à 22h
             </div>
+            <div class="card__meta" style="margin-bottom: 0.5rem;">
+              💶 Flow Worship : Entrée libre
+            </div>
             <div class="card__meta" style="margin-bottom: 1rem;">
-              💶 Tarif : Entrée libre
+              🎨 Atelier Peinture : 20€
             </div>
 
             <p class="fw__small" style="margin-top: 1rem;">
@@ -101,6 +104,31 @@
             </p>
 
             <form id="atelierForm" class="fw__form">
+
+              <fieldset class="fw__options">
+                <legend class="fw__field"><span>Je participe à</span></legend>
+
+                <label class="fw__option-card">
+                  <input type="radio" name="formula" value="Flow Worship — Gratuit" checked />
+                  <div class="fw__option-body">
+                    <strong>Flow Worship</strong>
+                    <span class="fw__option-price">Entrée libre</span>
+                  </div>
+                </label>
+
+                <label class="fw__option-card">
+                  <input type="radio" name="formula" value="Atelier Peinture — 20€" />
+                  <div class="fw__option-body">
+                    <strong>Atelier Peinture</strong>
+                    <span class="fw__option-price">20€</span>
+                  </div>
+                </label>
+              </fieldset>
+
+              <p id="peinturePriceNote" class="fw__note" style="display:none; background:#f6f7fb; border-radius:8px; padding:10px 12px;">
+                Le règlement de <strong>20€</strong> se fait via Stripe sécurisé, après validation du formulaire. Tu seras redirigé(e) automatiquement.
+              </p>
+
               <label class="fw__field">
                 <span>Prénom</span>
                 <input type="text" name="firstName" autocomplete="given-name" required />

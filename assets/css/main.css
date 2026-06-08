@@ -478,6 +478,45 @@ img{ display:block; max-width:100%; }
 .fw__note{ margin: 8px 0 0; color: var(--muted); font-size: 13px; }
 .fw__small{ margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 
+.fw__options{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fw__option-card{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+.fw__option-card:has(input:checked){
+  border-color: #111;
+  background: #fafafa;
+}
+
+.fw__option-body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+.fw__option-price{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
 /* =========================
    MOBILE FIX — topbar + drawer
    ========================= */

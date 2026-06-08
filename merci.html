@@ -128,6 +128,30 @@
         return;
       }
 
+      if (type === "atelier-peinture") {
+        eyebrow.textContent = "Inscription enregistrée";
+        title.textContent = "Plus qu'une étape !";
+        text1.innerHTML = "Ton inscription à l'<strong>Atelier Peinture</strong> a bien été prise en compte.";
+        text2.innerHTML = "La page de paiement <strong>Stripe (20€)</strong> s'est ouverte dans un nouvel onglet. Finalise le règlement pour confirmer ta place.";
+        primaryBtn.textContent = "Retour à l'accueil";
+        primaryBtn.href = "index.html";
+        secondaryBtn.textContent = "Flow Worship";
+        secondaryBtn.href = "flow-worship.html";
+        return;
+      }
+
+      if (type === "flow-worship") {
+        eyebrow.textContent = "Inscription validée";
+        title.textContent = "Merci, à très bientôt !";
+        text1.innerHTML = "Ton inscription à <strong>Flow Worship — 13 juin</strong> a bien été prise en compte.";
+        text2.textContent = "Nous avons hâte de vivre ce temps avec toi. Tu recevras les infos pratiques par email.";
+        primaryBtn.textContent = "Retour à l'accueil";
+        primaryBtn.href = "index.html";
+        secondaryBtn.textContent = "En savoir plus";
+        secondaryBtn.href = "flow-worship.html";
+        return;
+      }
+
       if (type === "gallery") {
         eyebrow.textContent = "Proposition envoyée";
         title.textContent = "Merci pour ton partage";
